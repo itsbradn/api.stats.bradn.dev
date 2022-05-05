@@ -1,4 +1,4 @@
-import { getDate } from './Time';
+import { getDate } from './Time.module';
 import chalk from 'chalk';
 
 export default (function(cons){

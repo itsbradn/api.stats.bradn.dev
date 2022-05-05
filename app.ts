@@ -1,6 +1,6 @@
 import { config as envConfig } from 'dotenv';
 import express from 'express';
-import Terminal from './modules/Terminal';
+import Terminal from './modules/Terminal.module';
 import { ControllerService } from './service/controller.service';
 
 envConfig();

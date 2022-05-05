@@ -5,6 +5,7 @@ import Route from "../../decorator/route.decorator";
 import rateLimitMiddleware from "../../middleware/rateLimit.middleware";
 import ErrorResponse from "../../models/errorResponse.model";
 import userModel, { IUser } from "../../models/user.model";
+import { sendCodeTemplate } from "../../modules/Email.module";
 import { AbstractController } from "./auth.abstract";
 
 @Controller('/auth', 1)
@@ -36,7 +37,7 @@ export class AuthenticationController extends AbstractController {
         try {
             let code = Math.floor(100000 + Math.random() * 900000);
             const user = await userModel.create({ username, email, password, activationCode: code });
-            // SEND EMAIL WITH CODE HERE
+            await sendCodeTemplate(user.username, user.email, code.toString());
 
             sendToken(user, 201, res);
         } catch (e) {

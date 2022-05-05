@@ -7,7 +7,7 @@ import { AbstractController } from "../abstract.controller";
 
 @Controller('/account', 1)
 export class AccountController extends AbstractController {
-    @Route(RequestType.GET, '/')
+    @Route(RequestType.GET, '/', rateLimit())
     GetDetails(req: Request, res: Response): void {
         res.send('haha');
     }

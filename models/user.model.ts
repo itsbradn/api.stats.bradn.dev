@@ -1,10 +1,12 @@
 
-import { Schema, model, Document } from "mongoose";
+import { Schema, model, Document, Types } from "mongoose";
 import { genSalt, hash, compare } from 'bcrypt';
 import { sign } from 'jsonwebtoken';
 import { ErrorDescription } from "mongodb";
 
 export interface IUser {
+    id: Types.ObjectId,
+    _id: string,
     username: string,
     email: string,
     verified: boolean,

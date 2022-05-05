@@ -4,12 +4,14 @@ import { genSalt, hash, compare } from 'bcrypt';
 import { sign } from 'jsonwebtoken';
 import { ErrorDescription } from "mongodb";
 
-interface IUser {
+export interface IUser {
     username: string,
     email: string,
     verified: boolean,
     activationCode: string,
     password: string,
+    getSignedToken: Function,
+    matchPassword: Function,
 }
 
 const userSchema = new Schema<IUser>({

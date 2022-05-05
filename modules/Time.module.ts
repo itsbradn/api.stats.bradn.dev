@@ -7,8 +7,8 @@ dayjs.extend(utc);
 dayjs.extend(timezone);
 dayjs.tz.setDefault("America/Los_Angeles");
 
-const getDate = () => {
-    return dayjs().format('MMMM-D-YYYY h:mm:ssA');
+const getDate = (date?: Date | undefined) => {
+    return dayjs(date).format('MMMM-D-YYYY h:mm:ssA');
 }
 
 export {

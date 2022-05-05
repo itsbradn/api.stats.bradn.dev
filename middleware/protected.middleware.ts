@@ -1,11 +1,10 @@
-import { NextFunction, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import { verify } from "jsonwebtoken";
 import { decoded } from "../constant/jwtToken.constant";
-import { ProtectedRequest } from "../constant/request.constant";
 import ErrorResponse from "../models/errorResponse.model";
 import userModel from "../models/user.model";
 
-export default async function(req: ProtectedRequest, res: Response, next: NextFunction) {
+export default async (req: Request, res: Response, next: NextFunction) => {
     let token;
     if (req.headers.authorization && req.headers.authorization.startsWith("Bearer")) {
         token = req.headers.authorization.split(" ")[1];

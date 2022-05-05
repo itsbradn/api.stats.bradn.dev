@@ -8,7 +8,7 @@ import userModel, { IUser } from "../../models/user.model";
 import { AbstractController } from "./auth.abstract";
 
 @Controller('/auth', 1)
-export class AuthorizationController extends AbstractController {
+export class AuthenticationController extends AbstractController {
     @Route(RequestType.POST, '/login', rateLimitMiddleware)
     async HandleLogin(req: Request, res: Response, next: NextFunction): Promise<void> {
         const { username, password } = req.body;

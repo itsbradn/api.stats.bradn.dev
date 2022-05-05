@@ -1,7 +1,10 @@
 import { config as envConfig } from 'dotenv';
 import express from 'express';
 import Terminal from './modules/Terminal.module';
+import { getDate } from './modules/Time.module';
 import { ControllerService } from './service/controller.service';
+
+let serverStart = Date.now();
 
 envConfig();
 
@@ -13,7 +16,8 @@ class Server {
 
 const server = new Server();
 
-((port = process.env.PORT || 5000) => {
+(async (port = process.env.PORT || 5000) => {
     server.controllerService.getControllers(server.app);
-    server.app.listen(port, () => server.terminal.log(`Listening on port ${port}`));
+    await server.app.listen(port, () => server.terminal.log(`Listening on port ${port}`));
+    server.terminal.success(`Started server in ${Date.now() - serverStart}ms`)
 })();

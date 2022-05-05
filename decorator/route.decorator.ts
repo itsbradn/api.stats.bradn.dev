@@ -7,8 +7,9 @@ export default function Route(type: RequestType = RequestType.GET, path: string 
         if (!prototype.router) prototype.router = Router();
 
         let router: Router = prototype.router;
+        middleware = formatMiddleware(middleware);
 
-        router.use(path, formatMiddleware(middleware));
+        if (middleware.length > 0) router.use(path, middleware);
 
         switch(type) {
             case RequestType.DEL: router.delete(path, descriptor.value); break;

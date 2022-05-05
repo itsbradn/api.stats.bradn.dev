@@ -25,6 +25,7 @@ class Server {
 const server = new Server();
 
 (async (port = process.env.PORT || 5000) => {
+    server.app.use(express.json());
     server.controllerService.getControllers(server.app);
     await server.app.listen(port, () => server.terminal.log(`Listening on port ${port}`));
     await server.connectDb();

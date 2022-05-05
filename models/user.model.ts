@@ -1,18 +1,27 @@
 
-import { Schema, model } from "mongoose";
+import { Schema, model, Document } from "mongoose";
 import { genSalt, hash, compare } from 'bcrypt';
 import { sign } from 'jsonwebtoken';
+import { ErrorDescription } from "mongodb";
 
-const userSchema = new Schema({
+interface IUser {
+    username: string,
+    email: string,
+    verified: boolean,
+    activationCode: string,
+    password: string,
+}
+
+const userSchema = new Schema<IUser>({
     username: {
         type: String,
         required: [true, 'Please Provide a username'],
-        unique: [true, 'This username is already in use']
+        unique: true
     },
     email: {
         type: String,
         required: [true, "Please provide an email"],
-        unique: [true, 'This email is already in use'],
+        unique: true,
         match: [
             /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/, "Please provide a valid email"
         ]
@@ -32,6 +41,14 @@ const userSchema = new Schema({
     }
 });
 
+userSchema.post('save', function(error: ErrorDescription, doc: Document, next: Function) {
+    if (error.name === 'MongoError' && error.code === 11000) {
+      next(new Error('Someone has already used this email or username.'));
+    } else {
+      next(error);
+    }
+  });
+
 userSchema.pre('save', async function(next) {
     if (!this.isModified('password')) {
         next();
@@ -43,11 +60,11 @@ userSchema.pre('save', async function(next) {
 });
 
 userSchema.methods.getSignedToken = function() {
-    return sign({ id: this._id }, process.env.JWT_SECRET || "nosign", { expiresIn: process.env.JWT_EXPIRE || '90d' });
+    return sign({ id: this._id }, process.env.JWT_SECRET || "nosecret", { expiresIn: process.env.JWT_EXPIRE || '90d' });
 }
 
 userSchema.methods.matchPassword = async function(password: string) {
     return await compare(password, this.password);
 }
 
-export default model('User', userSchema);
+export default model<IUser>('User', userSchema);

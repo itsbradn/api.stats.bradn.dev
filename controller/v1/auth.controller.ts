@@ -36,7 +36,7 @@ export class AuthenticationController extends AbstractController {
 
         try {
             let code = Math.floor(100000 + Math.random() * 900000);
-            const user = await userModel.create({ username, email, password, activationCode: code });
+            const user = await userModel.create({ username, email, password, activationAuthCode: code, activationAuthCodeRefreshAt: new Date(Date.now() + (parseInt(process.env.EMAIL_CODE_REFRESH_MINUTES || "5") * 60 * 1000)) });
             await sendCodeTemplate(user.username, user.email, code.toString());
 
             sendToken(user, 201, res);

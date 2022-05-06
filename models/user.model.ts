@@ -10,7 +10,8 @@ export interface IUser {
     username: string,
     email: string,
     verified: boolean,
-    activationCode: string,
+    activationAuthCode: string,
+    activationAuthCodeRefreshAt: Date,
     password: string,
     getSignedToken: Function,
     matchPassword: Function,
@@ -34,8 +35,10 @@ const userSchema = new Schema<IUser>({
         type: Boolean,
         default: false
     },
-    activationCode: {
-        type: String
+    activationAuthCode: String,
+    activationAuthCodeRefreshAt: {
+        type: Date,
+        default: new Date(Date.now() + (parseInt(process.env.EMAIL_CODE_REFRESH_MINUTES || "5") * 60 * 1000)),
     },
     password: {
         type: String,

@@ -24,6 +24,8 @@ export interface IMojang {
     skinHistory: Types.DocumentArray<IMojangSkinHistory>,
     capeHistory: Types.DocumentArray<IMojangCapeHistory>,
     cacheRefreshAt: Date,
+    connectionAuthCode: number,
+    connectionAuthCodeRefreshAt: Date,
 }
 
 const mojangSchema = new Schema<IMojang>({
@@ -41,7 +43,9 @@ const mojangSchema = new Schema<IMojang>({
     cacheRefreshAt: {
         type: Date,
         required: true
-    }
+    },
+    connectionAuthCode: Number,
+    connectionAuthCodeRefreshAt: Date,
 })
 
 export default model<IMojang>('Mojang', mojangSchema)

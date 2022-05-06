@@ -26,6 +26,7 @@
     "express-rate-limit": "^6.4.0",
     "global": "^4.4.0",
     "jsonwebtoken": "^8.5.1",
+    "minecraft-protocol": "^1.34.0",
     "mongoose": "^6.3.2",
     "nodemon": "^2.0.16",
     "pm2": "^5.2.0",

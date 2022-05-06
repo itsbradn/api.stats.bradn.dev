@@ -13,9 +13,14 @@ Want to contribute to the project? Feel free to report bugs and/or contribute to
 - <a href="https://www.typescriptlang.org/">TypeScript</a>
 - <a href="https://www.mongodb.com/">MongoDB Database</a>
 - <a href="https://www.sparkpost.com/">Sparkpost API Key</a>
+- <a href="https://discord.com/developers/applications">Discord Application Token</a>
 
 <h3>Installation</h3>
 
 Clone the project and run `yarn install` to install dependencies.
+
+Rename the file `.env.example` to .env.development (You will need a .env.production version if you intend on hosting)
+
+Fill out the fields with appropriate information/api keys aquired from the respective websites.
 
 Now you can run `yarn dev` to start a development server. You can access the site at <a href="http://localhost:5000">http://localhost:5000</a>. The port may change if you already have a server running on that port or you changed the default port.

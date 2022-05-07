@@ -110,7 +110,7 @@ async function ConvertUsernameToUUID(username: string): Promise<string | ErrorRe
 }
 
 async function ConvertUUIDToUsername(uuid: string): Promise<String | ErrorResponse> {
-    let nameHistory: Array<NameHistoryValue> = (await axios.get(routes.profile.replace("%uuid%", uuid))).data.reverse();
+    let nameHistory: Array<NameHistoryValue> = (await axios.get(routes.nameHistory.replace("%uuid%", uuid))).data.reverse();
     if (!nameHistory) {
         server.terminal.error(`Couldn't fetch name history at route ${routes.nameHistory.replace("%uuid%", uuid)} for uuid ${uuid}`);
         return new ErrorResponse(`Couldn't fetch name history from mojang.`, 500);
@@ -180,13 +180,14 @@ async function RefreshTextures(uuid: string): Promise<IMojang | ErrorResponse> {
 }
 
 async function RefreshPlayerData(username:string): Promise<IMojang | ErrorResponse> {
+    if (!username || username === "") return new ErrorResponse(`No username provided`, 500);
     let profile: MojangProfile = (await axios.get(`${routes.profile}${username}`)).data;
     if (!profile) {
         server.terminal.error(`Couldn't fetch profile at route ${routes.profile} for username ${username}`);
         return new ErrorResponse(`Couldn't fetch user data from mojang.`, 500);
     }
 
-    let nameHistory: Array<NameHistoryValue> = (await axios.get(routes.profile.replace("%uuid%", profile.id))).data.reverse();
+    let nameHistory: Array<NameHistoryValue> = (await axios.get(routes.nameHistory.replace("%uuid%", profile.id))).data.reverse();
     if (!nameHistory) {
         server.terminal.error(`Couldn't fetch name history at route ${routes.nameHistory.replace("%uuid%", profile.id)} for uuid ${profile.id} (${username})`);
         return new ErrorResponse(`Couldn't fetch name history from mojang.`, 500);

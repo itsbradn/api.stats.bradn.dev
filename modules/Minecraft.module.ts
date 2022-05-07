@@ -4,6 +4,7 @@ import capeModel from '../models/cape.model';
 import ErrorResponse from '../models/errorResponse.model';
 import mojangModel, { IMojang, IMojangCapeHistory, IMojangSkinHistory, IMojangUsernameHistory } from '../models/mojang.model';
 import skinModel from '../models/skin.model';
+import { handleGetRequest } from './Request.module';
 
 interface MinecraftResponse {
     username: string,
@@ -110,7 +111,7 @@ async function ConvertUsernameToUUID(username: string): Promise<string | ErrorRe
 }
 
 async function ConvertUUIDToUsername(uuid: string): Promise<String | ErrorResponse> {
-    let nameHistory: Array<NameHistoryValue> = (await axios.get(routes.nameHistory.replace("%uuid%", uuid))).data.reverse();
+    let nameHistory: Array<NameHistoryValue> = (await handleGetRequest(routes.nameHistory.replace("%uuid%", uuid))).data.reverse();
     if (!nameHistory) {
         server.terminal.error(`Couldn't fetch name history at route ${routes.nameHistory.replace("%uuid%", uuid)} for uuid ${uuid}`);
         return new ErrorResponse(`Couldn't fetch name history from mojang.`, 500);
@@ -119,7 +120,7 @@ async function ConvertUUIDToUsername(uuid: string): Promise<String | ErrorRespon
 }
 
 async function RefreshTextures(uuid: string): Promise<IMojang | ErrorResponse> {
-    let session: SessionResponse = (await axios.get(`${routes.sessionRequest}${uuid}`)).data;
+    let session: SessionResponse = (await handleGetRequest(`${routes.sessionRequest}${uuid}`)).data;
     let buffer: SessionBuffer = JSON.parse(Buffer.from(session.properties[0].value, 'base64').toString());
 
     let model = await mojangModel.findOne({ uuid });
@@ -129,7 +130,7 @@ async function RefreshTextures(uuid: string): Promise<IMojang | ErrorResponse> {
             username: session.name,
             cacheData: {
                 playerDataRefreshAt: new Date(),
-                textureRefreshAt: new Date(Date.now() + parseInt(process.env.MC_TEXTURE_REFRESH_AFTER_MINUTES || "5"))
+                textureRefreshAt: new Date(Date.now() + (parseInt(process.env.MC_TEXTURE_REFRESH_AFTER_MINUTES || "5") * 60 * 1000))
             }
         });
     }
@@ -173,7 +174,7 @@ async function RefreshTextures(uuid: string): Promise<IMojang | ErrorResponse> {
         }
     }
 
-    model.cacheData.textureRefreshAt = new Date(Date.now() + parseInt(process.env.MC_TEXTURE_REFRESH_AFTER_MINUTES || "5"));
+    model.cacheData.textureRefreshAt = new Date(Date.now() + (parseInt(process.env.MC_TEXTURE_REFRESH_AFTER_MINUTES || "5") * 60 * 1000));
     await model.save()
 
     return model
@@ -181,13 +182,13 @@ async function RefreshTextures(uuid: string): Promise<IMojang | ErrorResponse> {
 
 async function RefreshPlayerData(username:string): Promise<IMojang | ErrorResponse> {
     if (!username || username === "") return new ErrorResponse(`No username provided`, 500);
-    let profile: MojangProfile = (await axios.get(`${routes.profile}${username}`)).data;
+    let profile: MojangProfile = (await handleGetRequest(`${routes.profile}${username}`)).data;
     if (!profile) {
         server.terminal.error(`Couldn't fetch profile at route ${routes.profile} for username ${username}`);
         return new ErrorResponse(`Couldn't fetch user data from mojang.`, 500);
     }
 
-    let nameHistory: Array<NameHistoryValue> = (await axios.get(routes.nameHistory.replace("%uuid%", profile.id))).data.reverse();
+    let nameHistory: Array<NameHistoryValue> = (await handleGetRequest(routes.nameHistory.replace("%uuid%", profile.id))).data.reverse();
     if (!nameHistory) {
         server.terminal.error(`Couldn't fetch name history at route ${routes.nameHistory.replace("%uuid%", profile.id)} for uuid ${profile.id} (${username})`);
         return new ErrorResponse(`Couldn't fetch name history from mojang.`, 500);
@@ -199,7 +200,7 @@ async function RefreshPlayerData(username:string): Promise<IMojang | ErrorRespon
             uuid: profile.id, 
             username: profile.name,
             cacheData: {
-                playerDataRefreshAt: new Date(Date.now() + parseInt(process.env.MC_PLAYER_REFRESH_AFTER_MINUTES || "2880")),
+                playerDataRefreshAt: new Date(Date.now() + (parseInt(process.env.MC_PLAYER_REFRESH_AFTER_MINUTES || "2880") * 60 * 1000)),
                 textureRefreshAt: new Date()
             }
         });
@@ -215,7 +216,7 @@ async function RefreshPlayerData(username:string): Promise<IMojang | ErrorRespon
         model.usernameHistory.push(val)
     }
 
-    model.cacheData.playerDataRefreshAt = new Date(Date.now() + parseInt(process.env.MC_PLAYER_REFRESH_AFTER_MINUTES || "2880"));
+    model.cacheData.playerDataRefreshAt = new Date(Date.now() + (parseInt(process.env.MC_PLAYER_REFRESH_AFTER_MINUTES || "2880") * 60 * 1000));
     await model.save();
     return model;
 }

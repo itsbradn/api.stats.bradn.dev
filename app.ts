@@ -51,3 +51,4 @@ const server = new Server();
     server.terminal.success(`Started server in ${Date.now() - serverStart}ms`)
 })();
 
+export default server;

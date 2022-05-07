@@ -20,10 +20,13 @@ export interface IMojang {
     _id: string,
     username: string,
     uuid: string,
-    usernameHistory: Types.DocumentArray<IMojangUsernameHistory>,
-    skinHistory: Types.DocumentArray<IMojangSkinHistory>,
-    capeHistory: Types.DocumentArray<IMojangCapeHistory>,
-    cacheRefreshAt: Date,
+    usernameHistory: Array<IMojangUsernameHistory>,
+    skinHistory: Array<IMojangSkinHistory>,
+    capeHistory: Array<IMojangCapeHistory>,
+    cacheData: {
+        playerDataRefreshAt: Date,
+        textureRefreshAt: Date,
+    },
     connectionAuthCode: number,
     connectionAuthCodeRefreshAt: Date,
 }
@@ -40,9 +43,9 @@ const mojangSchema = new Schema<IMojang>({
     usernameHistory: [],
     skinHistory: [],
     capeHistory: [],
-    cacheRefreshAt: {
-        type: Date,
-        required: true
+    cacheData: {
+        playerDataRefreshAt: Date,
+        textureRefreshAt: Date
     },
     connectionAuthCode: Number,
     connectionAuthCodeRefreshAt: Date,

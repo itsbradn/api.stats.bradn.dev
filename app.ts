@@ -6,6 +6,7 @@ import { createServer, Server as mcServer, Client as mcClient } from 'minecraft-
 import { ControllerService } from './service/controller.service';
 import mojangModel from './models/mojang.model';
 import cors from 'cors';
+import errorHandler from './middleware/error.middleware';
 
 let serverStart = Date.now();
 
@@ -51,6 +52,7 @@ const server = new Server();
         origin: '*'
     }));
     server.controllerService.getControllers(server.app);
+    server.app.use(errorHandler);
     await server.app.listen(port, () => server.terminal.log(`Listening on port ${port}`));
     await server.connectDb();
     server.terminal.success(`Started server in ${Date.now() - serverStart}ms`);

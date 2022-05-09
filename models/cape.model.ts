@@ -15,6 +15,6 @@ const capeSchema = new Schema<ICape>({
     },
     tags: [],
     loves: [],
-})
+});
 
 export default model<ICape>('Cape', capeSchema)

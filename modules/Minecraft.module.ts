@@ -53,6 +53,7 @@ const routes = {
     profile: `https://api.mojang.com/users/profiles/minecraft/`,
     nameHistory: `https://api.mojang.com/user/profiles/%uuid%/names`,
     sessionRequest: `https://sessionserver.mojang.com/session/minecraft/profile/`,
+    texture: `https://textures.minecraft.net/texture/`
 }
 
 async function GetUserByUsername(username:string): Promise<MinecraftResponse | ErrorResponse> {
@@ -225,7 +226,20 @@ function ConvertTextureURLToId(url: string): string | undefined {
     return url.split('/').pop();
 }
 
+async function getTextureFromId(id: string): Promise<ErrorResponse | ArrayBuffer> {
+    if (!id) return new ErrorResponse(`No Id given`, 400);
+    let skin = await skinModel.findOne({ id });
+    if (!skin) return new ErrorResponse(`No texture found`, 404);
+    if (skin?._id !== id) return new ErrorResponse(`No texture found`, 404);
+    try {
+        return (await axios.get(`${routes.texture}${skin.textureId}`, { responseType: 'arraybuffer' })).data;
+    } catch (e) {
+        return new ErrorResponse(`No texture found`, 404);
+    }
+}
+
 export {
     GetUserByUUID,
-    GetUserByUsername
+    GetUserByUsername,
+    getTextureFromId
 }

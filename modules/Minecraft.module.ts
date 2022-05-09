@@ -230,7 +230,7 @@ async function getTextureFromId(id: string): Promise<ErrorResponse | ArrayBuffer
     if (!id) return new ErrorResponse(`No Id given`, 400);
     let skin = await skinModel.findOne({ id });
     if (!skin) return new ErrorResponse(`No texture found`, 404);
-    if (skin?._id !== id) return new ErrorResponse(`No texture found`, 404);
+    if (skin?.id !== id) return new ErrorResponse(`No texture found`, 404);
     try {
         return (await axios.get(`${routes.texture}${skin.textureId}`, { responseType: 'arraybuffer' })).data;
     } catch (e) {

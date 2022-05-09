@@ -23,6 +23,6 @@ export class MinecraftController extends AbstractController {
             data: {
                 ...data,
             }
-        })
+        });
     }
 }

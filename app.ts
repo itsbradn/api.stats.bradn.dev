@@ -5,6 +5,7 @@ import Terminal from './modules/Terminal.module';
 import { createServer, Server as mcServer, Client as mcClient } from 'minecraft-protocol';
 import { ControllerService } from './service/controller.service';
 import mojangModel from './models/mojang.model';
+import cors from 'cors';
 
 let serverStart = Date.now();
 
@@ -15,6 +16,7 @@ class Server {
     public terminal = Terminal;
     public controllerService = new ControllerService();
     public mcServer: undefined | mcServer = undefined;
+    
 
     async connectDb() {
         let dbConnectStart = Date.now();
@@ -45,10 +47,13 @@ const server = new Server();
 
 (async (port = process.env.PORT || 5000) => {
     server.app.use(express.json());
+    server.app.use(cors({
+        origin: '*'
+    }));
     server.controllerService.getControllers(server.app);
     await server.app.listen(port, () => server.terminal.log(`Listening on port ${port}`));
     await server.connectDb();
-    server.terminal.success(`Started server in ${Date.now() - serverStart}ms`)
+    server.terminal.success(`Started server in ${Date.now() - serverStart}ms`);
 })();
 
 export default server;

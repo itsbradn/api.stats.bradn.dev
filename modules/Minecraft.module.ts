@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Document, HydratedDocument } from 'mongoose';
 import server from '../app';
 import capeModel from '../models/cape.model';
 import ErrorResponse from '../models/errorResponse.model';
@@ -62,7 +63,7 @@ async function GetUserByUsername(username:string): Promise<MinecraftResponse | E
     return GetUserByUUID(uuid as string);
 }
 
-async function GetUserByUUID(uuid:string): Promise<MinecraftResponse | ErrorResponse> {
+async function GetUserModelByUUID(uuid: string): Promise<HydratedDocument<any> | ErrorResponse> {
     let model: IMojang | null = await mojangModel.findOne({ uuid });
     if (!model) {
         let username = await ConvertUUIDToUsername(uuid)
@@ -87,7 +88,39 @@ async function GetUserByUUID(uuid:string): Promise<MinecraftResponse | ErrorResp
         if ((refreshTextureData as ErrorResponse).message) return refreshTextureData as ErrorResponse;
         model = refreshTextureData as IMojang;
     };
-    
+
+    return model;
+}
+
+async function GetUserByUUID(uuid:string): Promise<MinecraftResponse | ErrorResponse> {
+    // let model: IMojang | null = await mojangModel.findOne({ uuid });
+    // if (!model) {
+    //     let username = await ConvertUUIDToUsername(uuid)
+    //     if ((username as ErrorResponse).message) return username as ErrorResponse;
+    //     model = await mojangModel.create({ 
+    //         uuid, 
+    //         username,
+    //         cacheData: {
+    //             playerDataRefreshAt: new Date(),
+    //             textureRefreshAt: new Date()
+    //         }
+    //     });
+    // }
+    // if (model.cacheData.playerDataRefreshAt < new Date()) {
+    //     let refreshPlayerData = await RefreshPlayerData(model.username);
+    //     if ((refreshPlayerData as ErrorResponse).message) return refreshPlayerData as ErrorResponse;
+    //     model = refreshPlayerData as IMojang;
+    // };
+
+    // if (model.cacheData.textureRefreshAt < new Date()) {
+    //     let refreshTextureData = await RefreshTextures(model.uuid);
+    //     if ((refreshTextureData as ErrorResponse).message) return refreshTextureData as ErrorResponse;
+    //     model = refreshTextureData as IMojang;
+    // };
+
+    let model = await GetUserModelByUUID(uuid)
+    if ((model as ErrorResponse).message) return model as ErrorResponse;
+    model = model as HydratedDocument<IMojang>;
     let response: MinecraftResponse = {
         username: model.username,
         uuid: model.uuid,
@@ -241,5 +274,6 @@ async function getTextureFromId(id: string): Promise<ErrorResponse | ArrayBuffer
 export {
     GetUserByUUID,
     GetUserByUsername,
+    GetUserModelByUUID,
     getTextureFromId
 }

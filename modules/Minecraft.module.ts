@@ -57,12 +57,22 @@ const routes = {
     texture: `https://textures.minecraft.net/texture/`
 }
 
+/**
+ * Get a users mojang details such as uuid, skins, capes, and past names.
+ * 
+ * @param username Minecraft username
+ */
 async function GetUserByUsername(username:string): Promise<MinecraftResponse | ErrorResponse> {
     let uuid = await ConvertUsernameToUUID(username)
     if ((uuid as ErrorResponse).message) return uuid as ErrorResponse;
     return GetUserByUUID(uuid as string);
 }
 
+/**
+ * Get a user model from the database including all mojang details we cache.
+ * 
+ * @param uuid Minecraft UUID without dashes
+ */
 async function GetUserModelByUUID(uuid: string): Promise<HydratedDocument<any> | ErrorResponse> {
     let model: IMojang | null = await mojangModel.findOne({ uuid });
     if (!model) {
@@ -92,32 +102,12 @@ async function GetUserModelByUUID(uuid: string): Promise<HydratedDocument<any> |
     return model;
 }
 
+/**
+ * Get a users mojang details such as uuid, skins, capes, and past names.
+ * 
+ * @param uuid Minecraft UUID without dashes
+ */
 async function GetUserByUUID(uuid:string): Promise<MinecraftResponse | ErrorResponse> {
-    // let model: IMojang | null = await mojangModel.findOne({ uuid });
-    // if (!model) {
-    //     let username = await ConvertUUIDToUsername(uuid)
-    //     if ((username as ErrorResponse).message) return username as ErrorResponse;
-    //     model = await mojangModel.create({ 
-    //         uuid, 
-    //         username,
-    //         cacheData: {
-    //             playerDataRefreshAt: new Date(),
-    //             textureRefreshAt: new Date()
-    //         }
-    //     });
-    // }
-    // if (model.cacheData.playerDataRefreshAt < new Date()) {
-    //     let refreshPlayerData = await RefreshPlayerData(model.username);
-    //     if ((refreshPlayerData as ErrorResponse).message) return refreshPlayerData as ErrorResponse;
-    //     model = refreshPlayerData as IMojang;
-    // };
-
-    // if (model.cacheData.textureRefreshAt < new Date()) {
-    //     let refreshTextureData = await RefreshTextures(model.uuid);
-    //     if ((refreshTextureData as ErrorResponse).message) return refreshTextureData as ErrorResponse;
-    //     model = refreshTextureData as IMojang;
-    // };
-
     let model = await GetUserModelByUUID(uuid)
     if ((model as ErrorResponse).message) return model as ErrorResponse;
     model = model as HydratedDocument<IMojang>;
@@ -132,6 +122,11 @@ async function GetUserByUUID(uuid:string): Promise<MinecraftResponse | ErrorResp
     return response;
 }
 
+/**
+ * Get a users UUID without dashes.
+ * 
+ * @param username Minecraft username
+ */
 async function ConvertUsernameToUUID(username: string): Promise<string | ErrorResponse> {
     let model = await mojangModel.findOne({ username }) as IMojang;
     if (!model) {
@@ -144,6 +139,11 @@ async function ConvertUsernameToUUID(username: string): Promise<string | ErrorRe
     return model.uuid;
 }
 
+/**
+ * Get a users username.
+ * 
+ * @param uuid Minecraft UUID without dashes
+ */
 async function ConvertUUIDToUsername(uuid: string): Promise<String | ErrorResponse> {
     let nameHistory: Array<NameHistoryValue> = (await handleGetRequest(routes.nameHistory.replace("%uuid%", uuid))).data.reverse();
     if (!nameHistory) {
@@ -153,6 +153,11 @@ async function ConvertUUIDToUsername(uuid: string): Promise<String | ErrorRespon
     return nameHistory[0].name;
 }
 
+/**
+ * Update cached textures in the database such as skins and capes.
+ * 
+ * @param uuid Minecraft UUID without dashes
+ */
 async function RefreshTextures(uuid: string): Promise<IMojang | ErrorResponse> {
     let session: SessionResponse = (await handleGetRequest(`${routes.sessionRequest}${uuid}`)).data;
     let buffer: SessionBuffer = JSON.parse(Buffer.from(session.properties[0].value, 'base64').toString());
@@ -214,6 +219,11 @@ async function RefreshTextures(uuid: string): Promise<IMojang | ErrorResponse> {
     return model
 }
 
+/**
+ * Update cached mojang details including uuid, name history, and username.
+ * 
+ * @param username Minecraft Username
+ */
 async function RefreshPlayerData(username:string): Promise<IMojang | ErrorResponse> {
     if (!username || username === "") return new ErrorResponse(`No username provided`, 500);
     let profile: MojangProfile = (await handleGetRequest(`${routes.profile}${username}`)).data;
@@ -255,10 +265,20 @@ async function RefreshPlayerData(username:string): Promise<IMojang | ErrorRespon
     return model;
 }
 
+/**
+ * Converts a mojang texture url to an id.
+ * 
+ * @param url Mojang texture URL
+ */
 function ConvertTextureURLToId(url: string): string | undefined {
     return url.split('/').pop();
 }
 
+/**
+ * Converts database texture ID to an Array Buffer of the skin
+ * 
+ * @param id Database texture ID
+ */
 async function getTextureFromId(id: string): Promise<ErrorResponse | ArrayBuffer> {
     if (!id) return new ErrorResponse(`No Id given`, 400);
     let skin = await skinModel.findOne({ id });

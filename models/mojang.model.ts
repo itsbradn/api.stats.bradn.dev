@@ -29,6 +29,7 @@ export interface IMojang {
     },
     connectionAuthCode: number,
     connectionAuthCodeRefreshAt: Date,
+    ownerId: Types.ObjectId,
 }
 
 const mojangSchema = new Schema<IMojang>({
@@ -49,6 +50,7 @@ const mojangSchema = new Schema<IMojang>({
     },
     connectionAuthCode: Number,
     connectionAuthCodeRefreshAt: Date,
+    ownerId: Types.ObjectId,
 })
 
 export default model<IMojang>('Mojang', mojangSchema)

@@ -10,7 +10,7 @@ const routes = {
     player: `https://api.hypixel.net/player`
 }
 
-interface HypixelResponse {
+export interface HypixelResponse {
     uuid: string,
     connections: {
         firstLogin: Date,
@@ -73,14 +73,17 @@ async function GetHypixelModelByUUID(uuid: string): Promise<HydratedDocument<IHy
     }
 
     if (model.refreshAt < new Date()) {
-        let player: HypixelData = (await handleGetRequest(routes.player, {
+        let req = (await handleGetRequest(routes.player, {
             params: {
                 uuid,
                 key: process.env.HYPIXEL_API_KEY || ""
             }
-        })).data;
-
-        if (!player || player.success == false) return new ErrorResponse(`No hypixel data for this user.`, 400);
+        }));
+        if (req.status === 403) return new ErrorResponse(`Hypixel rejected the request`, 403);
+        if (req.status === 429) return new ErrorResponse(`Hypixel is ratelimiting requests from us. Please contact support`, 403);
+        if (req.status >= 500) return new ErrorResponse(`Hypixel is currently down`, 403);
+        if (!req || req.data.success == false || !req.data.player) return new ErrorResponse(`No hypixel data for this user.`, 400);
+        let player = req.data as HypixelData;
 
         model.connections.firstLogin = new Date(player.player.firstLogin);
         model.connections.lastLogin = new Date(player.player.lastLogin);

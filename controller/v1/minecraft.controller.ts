@@ -7,7 +7,8 @@ import protectedMiddleware from "../../middleware/protected.middleware";
 import rateLimitMiddleware from "../../middleware/rateLimit.middleware";
 import ErrorResponse from "../../models/errorResponse.model";
 import mojangModel, { IMojang } from "../../models/mojang.model";
-import { GetUserByUsername, getTextureFromId } from "../../modules/Minecraft.module";
+import { GetHypixelUserByUUID, HypixelResponse } from "../../modules/Hypixel.module";
+import { GetUserByUsername, getTextureFromId, MinecraftResponse } from "../../modules/Minecraft.module";
 import { AbstractController } from "./minecraft.abstract";
 
 @Controller('/mc', 1)
@@ -18,12 +19,18 @@ export class MinecraftController extends AbstractController {
 
         let data = await GetUserByUsername(player);
         if ((data as ErrorResponse).message) return next(data as ErrorResponse);
-        data = data as IMojang;
+        data = data as MinecraftResponse;
+
+        let hypixelSuccess = true;
+        let hypixel = await GetHypixelUserByUUID(data.uuid);
+        if ((hypixel as ErrorResponse).message) hypixelSuccess = false;
+        hypixel = hypixel as HypixelResponse;
         
         res.send({
             success: true,
             data: {
                 ...data,
+                hypixel: (hypixelSuccess ? {...hypixel} : undefined)
             }
         });
     }

@@ -8,7 +8,7 @@ import skinModel from '../models/skin.model';
 import { GetHypixelModelByUUID } from './Hypixel.module';
 import { handleGetRequest } from './Request.module';
 
-interface MinecraftResponse {
+export interface MinecraftResponse {
     username: string,
     uuid: string,
     usernameHistory: Array<IMojangUsernameHistory>,
@@ -196,7 +196,7 @@ async function RefreshTextures(uuid: string): Promise<IMojang | ErrorResponse> {
         }
     }
 
-    let capeId = ConvertTextureURLToId(buffer.textures.CAPE.url);
+    let capeId = ConvertTextureURLToId(buffer?.textures?.CAPE?.url);
     if (capeId) {
         let cape = await capeModel.findOne({ textureId: capeId });
         if (!cape) {
@@ -258,7 +258,7 @@ async function RefreshPlayerData(username:string): Promise<IMojang | ErrorRespon
             username: username.name,
             usernameApplicationDate: new Date(username.changedToAt || 0),
         }
-        if (model.usernameHistory.includes(val)) continue;
+        if (model.usernameHistory.some(e => e.username == val.username)) continue;
         model.usernameHistory.push(val)
     }
 
@@ -273,6 +273,7 @@ async function RefreshPlayerData(username:string): Promise<IMojang | ErrorRespon
  * @param url Mojang texture URL
  */
 function ConvertTextureURLToId(url: string): string | undefined {
+    if (!url) return undefined;
     return url.split('/').pop();
 }
 

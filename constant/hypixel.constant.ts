@@ -153,7 +153,7 @@ interface HypixelLevelingReward {
     levelingReward_249: boolean,
 }
 
-export interface HypixelData extends HypixelLevelingReward {
+export interface HypixelData {
     success: boolean,
     player: {
         _id: string,
@@ -161,6 +161,10 @@ export interface HypixelData extends HypixelLevelingReward {
         uuid: string,
         /** Mojang UUID */
         firstLogin: number,
+        /** Date as Unix Timestamp */
+        lastLogin: number,
+        /** Date as Unix Timestamp */
+        lastLogout: number,
         /** Date as Unix Timestamp */
         playername: string,
         /** Lowercase minecraft username */
@@ -174,6 +178,8 @@ export interface HypixelData extends HypixelLevelingReward {
         /** List of achievements that are only acquirable one time */
         achievements: HYPIXEL_ACHIEVEMENTS,
         /** List of achievements that are aquirable multiple times */
+        achievementPoints: number,
+        /** Amount of achievement points aquired */
         networkExp: number,
         /** Amount of network experience aquired */
         karma: number,
@@ -314,7 +320,7 @@ export interface HypixelData extends HypixelLevelingReward {
         /** */
         newPackageRank: HYPIXEL_RANK,
         /** */
-        rankPlusColor: HYPIXEL_RANK_COLOR,
+        rankPlusColor: string[HYPIXEL_PLUS_COLOR],
         /** */
         levelUp_MVP: number,
         /** Unix timestamp */

@@ -5,6 +5,7 @@ import capeModel from '../models/cape.model';
 import ErrorResponse from '../models/errorResponse.model';
 import mojangModel, { IMojang, IMojangCapeHistory, IMojangSkinHistory, IMojangUsernameHistory } from '../models/mojang.model';
 import skinModel from '../models/skin.model';
+import { GetHypixelModelByUUID } from './Hypixel.module';
 import { handleGetRequest } from './Request.module';
 
 interface MinecraftResponse {
@@ -74,6 +75,7 @@ async function GetUserByUsername(username:string): Promise<MinecraftResponse | E
  * @param uuid Minecraft UUID without dashes
  */
 async function GetUserModelByUUID(uuid: string): Promise<HydratedDocument<any> | ErrorResponse> {
+    console.log(await GetHypixelModelByUUID(uuid));
     let model: IMojang | null = await mojangModel.findOne({ uuid });
     if (!model) {
         let username = await ConvertUUIDToUsername(uuid)
@@ -295,5 +297,6 @@ export {
     GetUserByUUID,
     GetUserByUsername,
     GetUserModelByUUID,
-    getTextureFromId
+    getTextureFromId,
+    ConvertUsernameToUUID
 }

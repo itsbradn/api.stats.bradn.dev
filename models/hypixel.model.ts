@@ -10,20 +10,21 @@ export interface IHypixel {
         firstLogin: Date,
         lastLogin: Date,
         lastLogout: Date,
-    }
+    },
     karma: number,
     achievements: {
         points: Number
-    }
+    },
     rank: {
-        current: HYPIXEL_RANK,
-        rankColor: HYPIXEL_RANK_COLOR,
-        plusColor: HYPIXEL_PLUS_COLOR,
+        current: HYPIXEL_RANK | string,
+        rankColor: HYPIXEL_RANK_COLOR | string,
+        plusColor: HYPIXEL_PLUS_COLOR | string,
         history: Array<{type: HYPIXEL_RANK, timePurchased: Date}>
     },
     gifted: {
         ranks: number,
-    }
+    },
+    refreshAt: Date,
 }
 
 const hypixelSchema = new Schema<IHypixel>({
@@ -41,14 +42,15 @@ const hypixelSchema = new Schema<IHypixel>({
         points: Number,
     },
     rank: {
-        current: HYPIXEL_RANK,
-        rankColor: HYPIXEL_RANK_COLOR,
-        plusColor: HYPIXEL_PLUS_COLOR,
-        history: Array<{type: HYPIXEL_RANK, timePurchased: Date}>()
+        current: String,
+        rankColor: String,
+        plusColor: String,
+        history: Array<{type: String, timePurchased: Date}>()
     },
     gifted: {
         ranks: Number,
-    }
+    },
+    refreshAt: Date,
 });
 
 export default model<IHypixel>('Hypixel', hypixelSchema);

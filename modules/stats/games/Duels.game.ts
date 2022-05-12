@@ -57,6 +57,74 @@ export default (model: HydratedDocument<IHypixel>, {
     uhc_meetup_melee_hits = 0,
     uhc_meetup_bow_hits = 0,
     uhc_meetup_bow_shots = 0,
+
+    // OP 1v1
+    op_duel_kills = 0,
+    op_duel_deaths = 0,
+    op_duel_wins = 0,
+    op_duel_losses = 0,
+    op_duel_melee_swings = 0,
+    op_duel_melee_hits = 0,
+    op_duel_bow_hits = 0,
+    op_duel_bow_shots = 0,
+    current_winstreak_mode_op_duel = 0,
+    best_winstreak_mode_op_duel = 0,
+
+    // OP 2v2
+    op_doubles_kills = 0,
+    op_doubles_deaths = 0,
+    op_doubles_wins = 0,
+    op_doubles_losses = 0,
+    op_doubles_melee_swings = 0,
+    op_doubles_melee_hits = 0,
+    op_doubles_bow_hits = 0,
+    op_doubles_bow_shots = 0,
+
+    // SW 1v1
+    sw_duel_kills = 0,
+    sw_duel_deaths = 0,
+    sw_duel_wins = 0,
+    sw_duel_losses = 0,
+    sw_duel_melee_swings = 0,
+    sw_duel_melee_hits = 0,
+    sw_duel_bow_hits = 0,
+    sw_duel_bow_shots = 0,
+    current_winstreak_mode_sw_duel = 0,
+    best_winstreak_mode_sw_duel = 0,
+
+    // SW 2v2
+    sw_doubles_kills = 0,
+    sw_doubles_deaths = 0,
+    sw_doubles_wins = 0,
+    sw_doubles_losses = 0,
+    sw_doubles_melee_swings = 0,
+    sw_doubles_melee_hits = 0,
+    sw_doubles_bow_hits = 0,
+    sw_doubles_bow_shots = 0,
+
+    // Bow 1v1
+    bow_duel_kills = 0,
+    bow_duel_deaths = 0,
+    bow_duel_wins = 0,
+    bow_duel_losses = 0,
+    bow_duel_melee_swings = 0,
+    bow_duel_melee_hits = 0,
+    bow_duel_bow_hits = 0,
+    bow_duel_bow_shots = 0,
+    current_winstreak_mode_bow_duel = 0,
+    best_winstreak_mode_bow_duel = 0,
+
+    // BowSpleef 1v1
+    bow_duel_kills = 0,
+    bow_duel_deaths = 0,
+    bow_duel_wins = 0,
+    bow_duel_losses = 0,
+    bow_duel_melee_swings = 0,
+    bow_duel_melee_hits = 0,
+    bow_duel_bow_hits = 0,
+    bow_duel_bow_shots = 0,
+    current_winstreak_mode_bow_duel = 0,
+    best_winstreak_mode_bow_duel = 0,
 }): HydratedDocument<IHypixel> => {
 
     // someone please optimize this im too dumb with typescript !!!!!!!!!!!!!!!! HELPPPP !!!!!!!!!!

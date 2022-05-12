@@ -100,7 +100,6 @@ async function GetHypixelModelByUUID(uuid: string): Promise<HydratedDocument<IHy
         model.rank.current = player.player.newPackageRank;
         model.rank.plusColor = player.player.rankPlusColor;
         model.refreshAt = new Date(Date.now() + (parseInt(process.env.HYPIXEL_REFRESH_MINUTES || "5") * 60 * 1000));
-
         model = TNTGamesGame(model, player.player.stats.TNTGames);
 
         await model.save();

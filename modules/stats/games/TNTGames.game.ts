@@ -3,106 +3,106 @@ import {IHypixel, HypixelStat, HypixelSection} from '../../../models/hypixel.mod
 
 export default (model: HydratedDocument<IHypixel>, {
     // GAME STATS
-    number: coins = 0,
-    number: wins = 0,
+    coins = 0,
+    wins = 0,
 
     // TNT Tag
-    number: kills_tntag = 0,
-    number: wins_tntag = 0,
-    number: deaths_tntag = 0,
+    kills_tntag = 0,
+    wins_tntag = 0,
+    deaths_tntag = 0,
 
     // TNT Run
-    number: deaths_tntrun = 0,
-    number: wins_tntrun = 0,
-    number: record_tntrun = 0,
+    deaths_tntrun = 0,
+    wins_tntrun = 0,
+    record_tntrun = 0,
 
     // PVP Run
-    number: deaths_pvprun = 0,
-    number: kills_pvprun = 0,
-    number: wins_pvprun = 0,
-    number: record_pvprun = 0,
+    deaths_pvprun = 0,
+    kills_pvprun = 0,
+    wins_pvprun = 0,
+    record_pvprun = 0,
 
     // Bow Spleef
-    number: deaths_bowspleef = 0,
-    number: wins_bowspleef = 0,
-    number: tags_bowspleef = 0,
+    deaths_bowspleef = 0,
+    wins_bowspleef = 0,
+    tags_bowspleef = 0,
 
     // Wizards
-    number: wins_capture = 0,
-    number: kills_capture = 0,
-    number: deaths_capture = 0,
-    number: assists_capture = 0,
-    string: capture_class = undefined,
+    wins_capture = 0,
+    kills_capture = 0,
+    deaths_capture = 0,
+    assists_capture = 0,
+    capture_class = undefined,
 
     // Ancient Class
-    number: new_ancientwizard_kills = 0,
-    number: new_ancientwizard_deaths = 0,
-    number: new_ancientwizard_assists = 0,
-    number: new_ancientwizard_explode = 0,
-    number: new_ancientwizard_regen = 0,
+    new_ancientwizard_kills = 0,
+    new_ancientwizard_deaths = 0,
+    new_ancientwizard_assists = 0,
+    new_ancientwizard_explode = 0,
+    new_ancientwizard_regen = 0,
 
     // Blood Class
-    number: new_bloodwizard_kills = 0,
-    number: new_bloodwizard_deaths = 0,
-    number: new_bloodwizard_assists = 0,
-    number: new_bloodwizard_explode = 0,
-    number: new_bloodwizard_regen = 0,
+    new_bloodwizard_kills = 0,
+    new_bloodwizard_deaths = 0,
+    new_bloodwizard_assists = 0,
+    new_bloodwizard_explode = 0,
+    new_bloodwizard_regen = 0,
 
     // Fire Class
-    number: new_firewizard_kills = 0,
-    number: new_firewizard_deaths = 0,
-    number: new_firewizard_assists = 0,
-    number: new_firewizard_explode = 0,
-    number: new_firewizard_regen = 0,
+    new_firewizard_kills = 0,
+    new_firewizard_deaths = 0,
+    new_firewizard_assists = 0,
+    new_firewizard_explode = 0,
+    new_firewizard_regen = 0,
 
     // Hydro Class
-    number: new_hydrowizard_kills = 0,
-    number: new_hydrowizard_deaths = 0,
-    number: new_hydrowizard_assists = 0,
-    number: new_hydrowizard_explode = 0,
-    number: new_hydrowizard_regen = 0,
+    new_hydrowizard_kills = 0,
+    new_hydrowizard_deaths = 0,
+    new_hydrowizard_assists = 0,
+    new_hydrowizard_explode = 0,
+    new_hydrowizard_regen = 0,
 
     // Ice Class
-    number: new_icewizard_kills = 0,
-    number: new_icewizard_deaths = 0,
-    number: new_icewizard_assists = 0,
-    number: new_icewizard_explode = 0,
-    number: new_icewizard_regen = 0,
+    new_icewizard_kills = 0,
+    new_icewizard_deaths = 0,
+    new_icewizard_assists = 0,
+    new_icewizard_explode = 0,
+    new_icewizard_regen = 0,
 
     // Kinetic Class
-    number: new_kineticwizard_kills = 0,
-    number: new_kineticwizard_deaths = 0,
-    number: new_kineticwizard_assists = 0,
-    number: new_kineticwizard_explode = 0,
-    number: new_kineticwizard_regen = 0,
+    new_kineticwizard_kills = 0,
+    new_kineticwizard_deaths = 0,
+    new_kineticwizard_assists = 0,
+    new_kineticwizard_explode = 0,
+    new_kineticwizard_regen = 0,
 
     // Storm Class
-    number: new_stormwizard_kills = 0,
-    number: new_stormwizard_deaths = 0,
-    number: new_stormwizard_assists = 0,
-    number: new_stormwizard_explode = 0,
-    number: new_stormwizard_regen = 0,
+    new_stormwizard_kills = 0,
+    new_stormwizard_deaths = 0,
+    new_stormwizard_assists = 0,
+    new_stormwizard_explode = 0,
+    new_stormwizard_regen = 0,
 
     // Toxic Class
-    number: new_toxicwizard_kills = 0,
-    number: new_toxicwizard_deaths = 0,
-    number: new_toxicwizard_assists = 0,
-    number: new_toxicwizard_explode = 0,
-    number: new_toxicwizard_regen = 0,
+    new_toxicwizard_kills = 0,
+    new_toxicwizard_deaths = 0,
+    new_toxicwizard_assists = 0,
+    new_toxicwizard_explode = 0,
+    new_toxicwizard_regen = 0,
 
     // Wither Class
-    number: new_witherwizard_kills = 0,
-    number: new_witherwizard_deaths = 0,
-    number: new_witherwizard_assists = 0,
-    number: new_witherwizard_explode = 0,
-    number: new_witherwizard_regen = 0,
+    new_witherwizard_kills = 0,
+    new_witherwizard_deaths = 0,
+    new_witherwizard_assists = 0,
+    new_witherwizard_explode = 0,
+    new_witherwizard_regen = 0,
 }): HydratedDocument<IHypixel> => {
 
     // someone please optimize this im too dumb with typescript !!!!!!!!!!!!!!!! HELPPPP !!!!!!!!!!
 
     // GAME STATS
     model.stats.TNTGames.coins = handleSection(model.stats.TNTGames.coins, coins);
-    model.stats.TNTGames.wins = handleSection(model.stats.TNTGames.wins, coins);
+    model.stats.TNTGames.wins = handleSection(model.stats.TNTGames.wins, wins);
 
     // TNT Tag
     model.stats.TNTGames.modes.tnt_tag.deaths = handleSection(model.stats.TNTGames.modes.tnt_tag.deaths, deaths_tntag);

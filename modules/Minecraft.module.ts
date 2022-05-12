@@ -75,7 +75,6 @@ async function GetUserByUsername(username:string): Promise<MinecraftResponse | E
  * @param uuid Minecraft UUID without dashes
  */
 async function GetUserModelByUUID(uuid: string): Promise<HydratedDocument<any> | ErrorResponse> {
-    console.log(await GetHypixelModelByUUID(uuid));
     let model: IMojang | null = await mojangModel.findOne({ uuid });
     if (!model) {
         let username = await ConvertUUIDToUsername(uuid)

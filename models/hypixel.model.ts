@@ -129,6 +129,508 @@ export interface IHypixel {
                     }
                 }
             }
+        },
+        "Duels": {
+            coins: HypixelSection,
+            lootChests: number,
+            winstreaks: {
+                best: HypixelSection,
+                current: HypixelSection,
+            },
+            kills: HypixelSection,
+            deaths: HypixelSection,
+            wins: HypixelSection,
+            losses: HypixelSection,
+            swings: HypixelSection,
+            hits: HypixelSection,
+            arrowsShot: HypixelSection,
+            arrowsHit: HypixelSection,
+            modes: {
+                'uhc_duel': {
+                    division: {
+                        name: string,
+                        level: string,
+                        color: string,
+                    },
+                    winstreaks: {
+                        best: HypixelSection,
+                        current: HypixelSection,
+                    },
+                    kills: HypixelSection,
+                    deaths: HypixelSection,
+                    wins: HypixelSection,
+                    losses: HypixelSection,
+                    swings: HypixelSection,
+                    hits: HypixelSection,
+                    arrowsShot: HypixelSection,
+                    arrowsHit: HypixelSection,
+                },
+                'uhc_doubles': {
+                    division: {
+                        name: string,
+                        level: string,
+                        color: string,
+                    },
+                    winstreaks: {
+                        best: HypixelSection,
+                        current: HypixelSection,
+                    },
+                    kills: HypixelSection,
+                    deaths: HypixelSection,
+                    wins: HypixelSection,
+                    losses: HypixelSection,
+                    swings: HypixelSection,
+                    hits: HypixelSection,
+                    arrowsShot: HypixelSection,
+                    arrowsHit: HypixelSection,
+                },
+                'uhc_four': {
+                    division: {
+                        name: string,
+                        level: string,
+                        color: string,
+                    },
+                    winstreaks: {
+                        best: HypixelSection,
+                        current: HypixelSection,
+                    },
+                    kills: HypixelSection,
+                    deaths: HypixelSection,
+                    wins: HypixelSection,
+                    losses: HypixelSection,
+                    swings: HypixelSection,
+                    hits: HypixelSection,
+                    arrowsShot: HypixelSection,
+                    arrowsHit: HypixelSection,
+                },
+                'uhc_meetup': {
+                    division: {
+                        name: string,
+                        level: string,
+                        color: string,
+                    },
+                    winstreaks: {
+                        best: HypixelSection,
+                        current: HypixelSection,
+                    },
+                    kills: HypixelSection,
+                    deaths: HypixelSection,
+                    wins: HypixelSection,
+                    losses: HypixelSection,
+                    swings: HypixelSection,
+                    hits: HypixelSection,
+                    arrowsShot: HypixelSection,
+                    arrowsHit: HypixelSection,
+                },
+                'op_duel': {
+                    division: {
+                        name: string,
+                        level: string,
+                        color: string,
+                    },
+                    winstreaks: {
+                        best: HypixelSection,
+                        current: HypixelSection,
+                    },
+                    kills: HypixelSection,
+                    deaths: HypixelSection,
+                    wins: HypixelSection,
+                    losses: HypixelSection,
+                    swings: HypixelSection,
+                    hits: HypixelSection,
+                    arrowsShot: HypixelSection,
+                    arrowsHit: HypixelSection,
+                },
+                'op_doubles': {
+                    division: {
+                        name: string,
+                        level: string,
+                        color: string,
+                    },
+                    winstreaks: {
+                        best: HypixelSection,
+                        current: HypixelSection,
+                    },
+                    kills: HypixelSection,
+                    deaths: HypixelSection,
+                    wins: HypixelSection,
+                    losses: HypixelSection,
+                    swings: HypixelSection,
+                    hits: HypixelSection,
+                    arrowsShot: HypixelSection,
+                    arrowsHit: HypixelSection,
+                },
+                'sw_duel': {
+                    division: {
+                        name: string,
+                        level: string,
+                        color: string,
+                    },
+                    winstreaks: {
+                        best: HypixelSection,
+                        current: HypixelSection,
+                    },
+                    kills: HypixelSection,
+                    deaths: HypixelSection,
+                    wins: HypixelSection,
+                    losses: HypixelSection,
+                    swings: HypixelSection,
+                    hits: HypixelSection,
+                    arrowsShot: HypixelSection,
+                    arrowsHit: HypixelSection,
+                },
+                'sw_doubles': {
+                    division: {
+                        name: string,
+                        level: string,
+                        color: string,
+                    },
+                    winstreaks: {
+                        best: HypixelSection,
+                        current: HypixelSection,
+                    },
+                    kills: HypixelSection,
+                    deaths: HypixelSection,
+                    wins: HypixelSection,
+                    losses: HypixelSection,
+                    swings: HypixelSection,
+                    hits: HypixelSection,
+                    arrowsShot: HypixelSection,
+                    arrowsHit: HypixelSection,
+                },
+                'bow_duel': {
+                    division: {
+                        name: string,
+                        level: string,
+                        color: string,
+                    },
+                    winstreaks: {
+                        best: HypixelSection,
+                        current: HypixelSection,
+                    },
+                    kills: HypixelSection,
+                    deaths: HypixelSection,
+                    wins: HypixelSection,
+                    losses: HypixelSection,
+                    swings: HypixelSection,
+                    hits: HypixelSection,
+                    arrowsShot: HypixelSection,
+                    arrowsHit: HypixelSection,
+                },
+                'blitz_duel': {
+                    division: {
+                        name: string,
+                        level: string,
+                        color: string,
+                    },
+                    winstreaks: {
+                        best: HypixelSection,
+                        current: HypixelSection,
+                    },
+                    kills: HypixelSection,
+                    deaths: HypixelSection,
+                    wins: HypixelSection,
+                    losses: HypixelSection,
+                    swings: HypixelSection,
+                    hits: HypixelSection,
+                    arrowsShot: HypixelSection,
+                    arrowsHit: HypixelSection,
+                },
+                'mw_duel': {
+                    division: {
+                        name: string,
+                        level: string,
+                        color: string,
+                    },
+                    winstreaks: {
+                        best: HypixelSection,
+                        current: HypixelSection,
+                    },
+                    kills: HypixelSection,
+                    deaths: HypixelSection,
+                    wins: HypixelSection,
+                    losses: HypixelSection,
+                    swings: HypixelSection,
+                    hits: HypixelSection,
+                    arrowsShot: HypixelSection,
+                    arrowsHit: HypixelSection,
+                },
+                'sumo_duel': {
+                    division: {
+                        name: string,
+                        level: string,
+                        color: string,
+                    },
+                    winstreaks: {
+                        best: HypixelSection,
+                        current: HypixelSection,
+                    },
+                    kills: HypixelSection,
+                    deaths: HypixelSection,
+                    wins: HypixelSection,
+                    losses: HypixelSection,
+                    swings: HypixelSection,
+                    hits: HypixelSection,
+                    arrowsShot: HypixelSection,
+                    arrowsHit: HypixelSection,
+                },
+                'bowspleef_duel': {
+                    division: {
+                        name: string,
+                        level: string,
+                        color: string,
+                    },
+                    winstreaks: {
+                        best: HypixelSection,
+                        current: HypixelSection,
+                    },
+                    kills: HypixelSection,
+                    deaths: HypixelSection,
+                    wins: HypixelSection,
+                    losses: HypixelSection,
+                    swings: HypixelSection,
+                    hits: HypixelSection,
+                    arrowsShot: HypixelSection,
+                    arrowsHit: HypixelSection,
+                },
+                'parkour_eight': {
+                    division: {
+                        name: string,
+                        level: string,
+                        color: string,
+                    },
+                    winstreaks: {
+                        best: HypixelSection,
+                        current: HypixelSection,
+                    },
+                    kills: HypixelSection,
+                    deaths: HypixelSection,
+                    wins: HypixelSection,
+                    losses: HypixelSection,
+                    swings: HypixelSection,
+                    hits: HypixelSection,
+                    arrowsShot: HypixelSection,
+                    arrowsHit: HypixelSection,
+                },
+                'boxing_duel': {
+                    division: {
+                        name: string,
+                        level: string,
+                        color: string,
+                    },
+                    winstreaks: {
+                        best: HypixelSection,
+                        current: HypixelSection,
+                    },
+                    kills: HypixelSection,
+                    deaths: HypixelSection,
+                    wins: HypixelSection,
+                    losses: HypixelSection,
+                    swings: HypixelSection,
+                    hits: HypixelSection,
+                    arrowsShot: HypixelSection,
+                    arrowsHit: HypixelSection,
+                },
+                'classic_duel': {
+                    division: {
+                        name: string,
+                        level: string,
+                        color: string,
+                    },
+                    winstreaks: {
+                        best: HypixelSection,
+                        current: HypixelSection,
+                    },
+                    kills: HypixelSection,
+                    deaths: HypixelSection,
+                    wins: HypixelSection,
+                    losses: HypixelSection,
+                    swings: HypixelSection,
+                    hits: HypixelSection,
+                    arrowsShot: HypixelSection,
+                    arrowsHit: HypixelSection,
+                },
+                'potion_duel': {
+                    division: {
+                        name: string,
+                        level: string,
+                        color: string,
+                    },
+                    winstreaks: {
+                        best: HypixelSection,
+                        current: HypixelSection,
+                    },
+                    kills: HypixelSection,
+                    deaths: HypixelSection,
+                    wins: HypixelSection,
+                    losses: HypixelSection,
+                    swings: HypixelSection,
+                    hits: HypixelSection,
+                    arrowsShot: HypixelSection,
+                    arrowsHit: HypixelSection,
+                },
+                'combo_duel': {
+                    division: {
+                        name: string,
+                        level: string,
+                        color: string,
+                    },
+                    winstreaks: {
+                        best: HypixelSection,
+                        current: HypixelSection,
+                    },
+                    kills: HypixelSection,
+                    deaths: HypixelSection,
+                    wins: HypixelSection,
+                    losses: HypixelSection,
+                    swings: HypixelSection,
+                    hits: HypixelSection,
+                    arrowsShot: HypixelSection,
+                    arrowsHit: HypixelSection,
+                },
+            },
+            bridgeModes: {
+                'bridge_duel': {
+                    division: {
+                        name: string,
+                        level: string,
+                        color: string,
+                    },
+                    winstreaks: {
+                        best: HypixelSection,
+                        current: HypixelSection,
+                    },
+                    kills: HypixelSection,
+                    deaths: HypixelSection,
+                    wins: HypixelSection,
+                    losses: HypixelSection,
+                    swings: HypixelSection,
+                    hits: HypixelSection,
+                    arrowsShot: HypixelSection,
+                    arrowsHit: HypixelSection,
+                    goals: HypixelSection,
+                },
+                'bridge_doubles': {
+                    division: {
+                        name: string,
+                        level: string,
+                        color: string,
+                    },
+                    winstreaks: {
+                        best: HypixelSection,
+                        current: HypixelSection,
+                    },
+                    kills: HypixelSection,
+                    deaths: HypixelSection,
+                    wins: HypixelSection,
+                    losses: HypixelSection,
+                    swings: HypixelSection,
+                    hits: HypixelSection,
+                    arrowsShot: HypixelSection,
+                    arrowsHit: HypixelSection,
+                    goals: HypixelSection,
+                },
+                'bridge_threes': {
+                    division: {
+                        name: string,
+                        level: string,
+                        color: string,
+                    },
+                    winstreaks: {
+                        best: HypixelSection,
+                        current: HypixelSection,
+                    },
+                    kills: HypixelSection,
+                    deaths: HypixelSection,
+                    wins: HypixelSection,
+                    losses: HypixelSection,
+                    swings: HypixelSection,
+                    hits: HypixelSection,
+                    arrowsShot: HypixelSection,
+                    arrowsHit: HypixelSection,
+                    goals: HypixelSection,
+                },
+                'bridge_four': {
+                    division: {
+                        name: string,
+                        level: string,
+                        color: string,
+                    },
+                    winstreaks: {
+                        best: HypixelSection,
+                        current: HypixelSection,
+                    },
+                    kills: HypixelSection,
+                    deaths: HypixelSection,
+                    wins: HypixelSection,
+                    losses: HypixelSection,
+                    swings: HypixelSection,
+                    hits: HypixelSection,
+                    arrowsShot: HypixelSection,
+                    arrowsHit: HypixelSection,
+                    goals: HypixelSection,
+                },
+                'bridge_2v2v2v2': {
+                    division: {
+                        name: string,
+                        level: string,
+                        color: string,
+                    },
+                    winstreaks: {
+                        best: HypixelSection,
+                        current: HypixelSection,
+                    },
+                    kills: HypixelSection,
+                    deaths: HypixelSection,
+                    wins: HypixelSection,
+                    losses: HypixelSection,
+                    swings: HypixelSection,
+                    hits: HypixelSection,
+                    arrowsShot: HypixelSection,
+                    arrowsHit: HypixelSection,
+                    goals: HypixelSection,
+                },
+                'bridge_3v3v3v3': {
+                    division: {
+                        name: string,
+                        level: string,
+                        color: string,
+                    },
+                    winstreaks: {
+                        best: HypixelSection,
+                        current: HypixelSection,
+                    },
+                    kills: HypixelSection,
+                    deaths: HypixelSection,
+                    wins: HypixelSection,
+                    losses: HypixelSection,
+                    swings: HypixelSection,
+                    hits: HypixelSection,
+                    arrowsShot: HypixelSection,
+                    arrowsHit: HypixelSection,
+                    goals: HypixelSection,
+                },
+                'capture_threes': {
+                    division: {
+                        name: string,
+                        level: string,
+                        color: string,
+                    },
+                    winstreaks: {
+                        best: HypixelSection,
+                        current: HypixelSection,
+                    },
+                    kills: HypixelSection,
+                    deaths: HypixelSection,
+                    wins: HypixelSection,
+                    losses: HypixelSection,
+                    swings: HypixelSection,
+                    hits: HypixelSection,
+                    arrowsShot: HypixelSection,
+                    arrowsHit: HypixelSection,
+                    goals: HypixelSection,
+                },
+            }
         }
     },
     gifted: {
@@ -447,6 +949,1312 @@ const hypixelSchema = new Schema<IHypixel>({
                         },
                     }
                 }
+            }
+        },
+        "Duels": {
+            coins: {
+                        value: Number,
+                        history: Array
+                    },
+            lootChests: Number,
+            winstreaks: {
+                best: {
+                        value: Number,
+                        history: Array
+                    },
+                current: {
+                        value: Number,
+                        history: Array
+                    },
+            },
+            kills: {
+                        value: Number,
+                        history: Array
+                    },
+            deaths: {
+                        value: Number,
+                        history: Array
+                    },
+            wins: {
+                        value: Number,
+                        history: Array
+                    },
+            losses: {
+                        value: Number,
+                        history: Array
+                    },
+            swings: {
+                        value: Number,
+                        history: Array
+                    },
+            hits: {
+                        value: Number,
+                        history: Array
+                    },
+            arrowsShot: {
+                        value: Number,
+                        history: Array
+                    },
+            arrowsHit: {
+                        value: Number,
+                        history: Array
+                    },
+            modes: {
+                'uhc_duel': {
+                    division: {
+                        name: String,
+                        level: String,
+                        color: String,
+                    },
+                    winstreaks: {
+                        best: {
+                        value: Number,
+                        history: Array
+                    },
+                        current: {
+                        value: Number,
+                        history: Array
+                    },
+                    },
+                    kills: {
+                        value: Number,
+                        history: Array
+                    },
+                    deaths: {
+                        value: Number,
+                        history: Array
+                    },
+                    wins: {
+                        value: Number,
+                        history: Array
+                    },
+                    losses: {
+                        value: Number,
+                        history: Array
+                    },
+                    swings: {
+                        value: Number,
+                        history: Array
+                    },
+                    hits: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsShot: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsHit: {
+                        value: Number,
+                        history: Array
+                    },
+                },
+                'uhc_doubles': {
+                    division: {
+                        name: String,
+                        level: String,
+                        color: String,
+                    },
+                    winstreaks: {
+                        best: {
+                        value: Number,
+                        history: Array
+                    },
+                        current: {
+                        value: Number,
+                        history: Array
+                    },
+                    },
+                    kills: {
+                        value: Number,
+                        history: Array
+                    },
+                    deaths: {
+                        value: Number,
+                        history: Array
+                    },
+                    wins: {
+                        value: Number,
+                        history: Array
+                    },
+                    losses: {
+                        value: Number,
+                        history: Array
+                    },
+                    swings: {
+                        value: Number,
+                        history: Array
+                    },
+                    hits: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsShot: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsHit: {
+                        value: Number,
+                        history: Array
+                    },
+                },
+                'uhc_four': {
+                    division: {
+                        name: String,
+                        level: String,
+                        color: String,
+                    },
+                    winstreaks: {
+                        best: {
+                        value: Number,
+                        history: Array
+                    },
+                        current: {
+                        value: Number,
+                        history: Array
+                    },
+                    },
+                    kills: {
+                        value: Number,
+                        history: Array
+                    },
+                    deaths: {
+                        value: Number,
+                        history: Array
+                    },
+                    wins: {
+                        value: Number,
+                        history: Array
+                    },
+                    losses: {
+                        value: Number,
+                        history: Array
+                    },
+                    swings: {
+                        value: Number,
+                        history: Array
+                    },
+                    hits: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsShot: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsHit: {
+                        value: Number,
+                        history: Array
+                    },
+                },
+                'uhc_meetup': {
+                    division: {
+                        name: String,
+                        level: String,
+                        color: String,
+                    },
+                    winstreaks: {
+                        best: {
+                        value: Number,
+                        history: Array
+                    },
+                        current: {
+                        value: Number,
+                        history: Array
+                    },
+                    },
+                    kills: {
+                        value: Number,
+                        history: Array
+                    },
+                    deaths: {
+                        value: Number,
+                        history: Array
+                    },
+                    wins: {
+                        value: Number,
+                        history: Array
+                    },
+                    losses: {
+                        value: Number,
+                        history: Array
+                    },
+                    swings: {
+                        value: Number,
+                        history: Array
+                    },
+                    hits: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsShot: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsHit: {
+                        value: Number,
+                        history: Array
+                    },
+                },
+                'op_duel': {
+                    division: {
+                        name: String,
+                        level: String,
+                        color: String,
+                    },
+                    winstreaks: {
+                        best: {
+                        value: Number,
+                        history: Array
+                    },
+                        current: {
+                        value: Number,
+                        history: Array
+                    },
+                    },
+                    kills: {
+                        value: Number,
+                        history: Array
+                    },
+                    deaths: {
+                        value: Number,
+                        history: Array
+                    },
+                    wins: {
+                        value: Number,
+                        history: Array
+                    },
+                    losses: {
+                        value: Number,
+                        history: Array
+                    },
+                    swings: {
+                        value: Number,
+                        history: Array
+                    },
+                    hits: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsShot: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsHit: {
+                        value: Number,
+                        history: Array
+                    },
+                },
+                'op_doubles': {
+                    division: {
+                        name: String,
+                        level: String,
+                        color: String,
+                    },
+                    winstreaks: {
+                        best: {
+                        value: Number,
+                        history: Array
+                    },
+                        current: {
+                        value: Number,
+                        history: Array
+                    },
+                    },
+                    kills: {
+                        value: Number,
+                        history: Array
+                    },
+                    deaths: {
+                        value: Number,
+                        history: Array
+                    },
+                    wins: {
+                        value: Number,
+                        history: Array
+                    },
+                    losses: {
+                        value: Number,
+                        history: Array
+                    },
+                    swings: {
+                        value: Number,
+                        history: Array
+                    },
+                    hits: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsShot: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsHit: {
+                        value: Number,
+                        history: Array
+                    },
+                },
+                'sw_duel': {
+                    division: {
+                        name: String,
+                        level: String,
+                        color: String,
+                    },
+                    winstreaks: {
+                        best: {
+                        value: Number,
+                        history: Array
+                    },
+                        current: {
+                        value: Number,
+                        history: Array
+                    },
+                    },
+                    kills: {
+                        value: Number,
+                        history: Array
+                    },
+                    deaths: {
+                        value: Number,
+                        history: Array
+                    },
+                    wins: {
+                        value: Number,
+                        history: Array
+                    },
+                    losses: {
+                        value: Number,
+                        history: Array
+                    },
+                    swings: {
+                        value: Number,
+                        history: Array
+                    },
+                    hits: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsShot: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsHit: {
+                        value: Number,
+                        history: Array
+                    },
+                },
+                'sw_doubles': {
+                    division: {
+                        name: String,
+                        level: String,
+                        color: String,
+                    },
+                    winstreaks: {
+                        best: {
+                        value: Number,
+                        history: Array
+                    },
+                        current: {
+                        value: Number,
+                        history: Array
+                    },
+                    },
+                    kills: {
+                        value: Number,
+                        history: Array
+                    },
+                    deaths: {
+                        value: Number,
+                        history: Array
+                    },
+                    wins: {
+                        value: Number,
+                        history: Array
+                    },
+                    losses: {
+                        value: Number,
+                        history: Array
+                    },
+                    swings: {
+                        value: Number,
+                        history: Array
+                    },
+                    hits: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsShot: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsHit: {
+                        value: Number,
+                        history: Array
+                    },
+                },
+                'bow_duel': {
+                    division: {
+                        name: String,
+                        level: String,
+                        color: String,
+                    },
+                    winstreaks: {
+                        best: {
+                        value: Number,
+                        history: Array
+                    },
+                        current: {
+                        value: Number,
+                        history: Array
+                    },
+                    },
+                    kills: {
+                        value: Number,
+                        history: Array
+                    },
+                    deaths: {
+                        value: Number,
+                        history: Array
+                    },
+                    wins: {
+                        value: Number,
+                        history: Array
+                    },
+                    losses: {
+                        value: Number,
+                        history: Array
+                    },
+                    swings: {
+                        value: Number,
+                        history: Array
+                    },
+                    hits: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsShot: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsHit: {
+                        value: Number,
+                        history: Array
+                    },
+                },
+                'blitz_duel': {
+                    division: {
+                        name: String,
+                        level: String,
+                        color: String,
+                    },
+                    winstreaks: {
+                        best: {
+                        value: Number,
+                        history: Array
+                    },
+                        current: {
+                        value: Number,
+                        history: Array
+                    },
+                    },
+                    kills: {
+                        value: Number,
+                        history: Array
+                    },
+                    deaths: {
+                        value: Number,
+                        history: Array
+                    },
+                    wins: {
+                        value: Number,
+                        history: Array
+                    },
+                    losses: {
+                        value: Number,
+                        history: Array
+                    },
+                    swings: {
+                        value: Number,
+                        history: Array
+                    },
+                    hits: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsShot: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsHit: {
+                        value: Number,
+                        history: Array
+                    },
+                },
+                'mw_duel': {
+                    division: {
+                        name: String,
+                        level: String,
+                        color: String,
+                    },
+                    winstreaks: {
+                        best: {
+                        value: Number,
+                        history: Array
+                    },
+                        current: {
+                        value: Number,
+                        history: Array
+                    },
+                    },
+                    kills: {
+                        value: Number,
+                        history: Array
+                    },
+                    deaths: {
+                        value: Number,
+                        history: Array
+                    },
+                    wins: {
+                        value: Number,
+                        history: Array
+                    },
+                    losses: {
+                        value: Number,
+                        history: Array
+                    },
+                    swings: {
+                        value: Number,
+                        history: Array
+                    },
+                    hits: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsShot: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsHit: {
+                        value: Number,
+                        history: Array
+                    },
+                },
+                'sumo_duel': {
+                    division: {
+                        name: String,
+                        level: String,
+                        color: String,
+                    },
+                    winstreaks: {
+                        best: {
+                        value: Number,
+                        history: Array
+                    },
+                        current: {
+                        value: Number,
+                        history: Array
+                    },
+                    },
+                    kills: {
+                        value: Number,
+                        history: Array
+                    },
+                    deaths: {
+                        value: Number,
+                        history: Array
+                    },
+                    wins: {
+                        value: Number,
+                        history: Array
+                    },
+                    losses: {
+                        value: Number,
+                        history: Array
+                    },
+                    swings: {
+                        value: Number,
+                        history: Array
+                    },
+                    hits: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsShot: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsHit: {
+                        value: Number,
+                        history: Array
+                    },
+                },
+                'bowspleef_duel': {
+                    division: {
+                        name: String,
+                        level: String,
+                        color: String,
+                    },
+                    winstreaks: {
+                        best: {
+                        value: Number,
+                        history: Array
+                    },
+                        current: {
+                        value: Number,
+                        history: Array
+                    },
+                    },
+                    kills: {
+                        value: Number,
+                        history: Array
+                    },
+                    deaths: {
+                        value: Number,
+                        history: Array
+                    },
+                    wins: {
+                        value: Number,
+                        history: Array
+                    },
+                    losses: {
+                        value: Number,
+                        history: Array
+                    },
+                    swings: {
+                        value: Number,
+                        history: Array
+                    },
+                    hits: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsShot: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsHit: {
+                        value: Number,
+                        history: Array
+                    },
+                },
+                'parkour_eight': {
+                    division: {
+                        name: String,
+                        level: String,
+                        color: String,
+                    },
+                    winstreaks: {
+                        best: {
+                        value: Number,
+                        history: Array
+                    },
+                        current: {
+                        value: Number,
+                        history: Array
+                    },
+                    },
+                    kills: {
+                        value: Number,
+                        history: Array
+                    },
+                    deaths: {
+                        value: Number,
+                        history: Array
+                    },
+                    wins: {
+                        value: Number,
+                        history: Array
+                    },
+                    losses: {
+                        value: Number,
+                        history: Array
+                    },
+                    swings: {
+                        value: Number,
+                        history: Array
+                    },
+                    hits: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsShot: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsHit: {
+                        value: Number,
+                        history: Array
+                    },
+                },
+                'boxing_duel': {
+                    division: {
+                        name: String,
+                        level: String,
+                        color: String,
+                    },
+                    winstreaks: {
+                        best: {
+                        value: Number,
+                        history: Array
+                    },
+                        current: {
+                        value: Number,
+                        history: Array
+                    },
+                    },
+                    kills: {
+                        value: Number,
+                        history: Array
+                    },
+                    deaths: {
+                        value: Number,
+                        history: Array
+                    },
+                    wins: {
+                        value: Number,
+                        history: Array
+                    },
+                    losses: {
+                        value: Number,
+                        history: Array
+                    },
+                    swings: {
+                        value: Number,
+                        history: Array
+                    },
+                    hits: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsShot: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsHit: {
+                        value: Number,
+                        history: Array
+                    },
+                },
+                'classic_duel': {
+                    division: {
+                        name: String,
+                        level: String,
+                        color: String,
+                    },
+                    winstreaks: {
+                        best: {
+                        value: Number,
+                        history: Array
+                    },
+                        current: {
+                        value: Number,
+                        history: Array
+                    },
+                    },
+                    kills: {
+                        value: Number,
+                        history: Array
+                    },
+                    deaths: {
+                        value: Number,
+                        history: Array
+                    },
+                    wins: {
+                        value: Number,
+                        history: Array
+                    },
+                    losses: {
+                        value: Number,
+                        history: Array
+                    },
+                    swings: {
+                        value: Number,
+                        history: Array
+                    },
+                    hits: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsShot: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsHit: {
+                        value: Number,
+                        history: Array
+                    },
+                },
+                'potion_duel': {
+                    division: {
+                        name: String,
+                        level: String,
+                        color: String,
+                    },
+                    winstreaks: {
+                        best: {
+                        value: Number,
+                        history: Array
+                    },
+                        current: {
+                        value: Number,
+                        history: Array
+                    },
+                    },
+                    kills: {
+                        value: Number,
+                        history: Array
+                    },
+                    deaths: {
+                        value: Number,
+                        history: Array
+                    },
+                    wins: {
+                        value: Number,
+                        history: Array
+                    },
+                    losses: {
+                        value: Number,
+                        history: Array
+                    },
+                    swings: {
+                        value: Number,
+                        history: Array
+                    },
+                    hits: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsShot: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsHit: {
+                        value: Number,
+                        history: Array
+                    },
+                },
+                'combo_duel': {
+                    division: {
+                        name: String,
+                        level: String,
+                        color: String,
+                    },
+                    winstreaks: {
+                        best: {
+                        value: Number,
+                        history: Array
+                    },
+                        current: {
+                        value: Number,
+                        history: Array
+                    },
+                    },
+                    kills: {
+                        value: Number,
+                        history: Array
+                    },
+                    deaths: {
+                        value: Number,
+                        history: Array
+                    },
+                    wins: {
+                        value: Number,
+                        history: Array
+                    },
+                    losses: {
+                        value: Number,
+                        history: Array
+                    },
+                    swings: {
+                        value: Number,
+                        history: Array
+                    },
+                    hits: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsShot: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsHit: {
+                        value: Number,
+                        history: Array
+                    },
+                },
+            },
+            bridgeModes: {
+                'bridge_duel': {
+                    division: {
+                        name: String,
+                        level: String,
+                        color: String,
+                    },
+                    winstreaks: {
+                        best: {
+                        value: Number,
+                        history: Array
+                    },
+                        current: {
+                        value: Number,
+                        history: Array
+                    },
+                    },
+                    kills: {
+                        value: Number,
+                        history: Array
+                    },
+                    deaths: {
+                        value: Number,
+                        history: Array
+                    },
+                    wins: {
+                        value: Number,
+                        history: Array
+                    },
+                    losses: {
+                        value: Number,
+                        history: Array
+                    },
+                    swings: {
+                        value: Number,
+                        history: Array
+                    },
+                    hits: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsShot: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsHit: {
+                        value: Number,
+                        history: Array
+                    },
+                    goals: {
+                        value: Number,
+                        history: Array
+                    },
+                },
+                'bridge_doubles': {
+                    division: {
+                        name: String,
+                        level: String,
+                        color: String,
+                    },
+                    winstreaks: {
+                        best: {
+                        value: Number,
+                        history: Array
+                    },
+                        current: {
+                        value: Number,
+                        history: Array
+                    },
+                    },
+                    kills: {
+                        value: Number,
+                        history: Array
+                    },
+                    deaths: {
+                        value: Number,
+                        history: Array
+                    },
+                    wins: {
+                        value: Number,
+                        history: Array
+                    },
+                    losses: {
+                        value: Number,
+                        history: Array
+                    },
+                    swings: {
+                        value: Number,
+                        history: Array
+                    },
+                    hits: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsShot: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsHit: {
+                        value: Number,
+                        history: Array
+                    },
+                    goals: {
+                        value: Number,
+                        history: Array
+                    },
+                },
+                'bridge_threes': {
+                    division: {
+                        name: String,
+                        level: String,
+                        color: String,
+                    },
+                    winstreaks: {
+                        best: {
+                        value: Number,
+                        history: Array
+                    },
+                        current: {
+                        value: Number,
+                        history: Array
+                    },
+                    },
+                    kills: {
+                        value: Number,
+                        history: Array
+                    },
+                    deaths: {
+                        value: Number,
+                        history: Array
+                    },
+                    wins: {
+                        value: Number,
+                        history: Array
+                    },
+                    losses: {
+                        value: Number,
+                        history: Array
+                    },
+                    swings: {
+                        value: Number,
+                        history: Array
+                    },
+                    hits: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsShot: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsHit: {
+                        value: Number,
+                        history: Array
+                    },
+                    goals: {
+                        value: Number,
+                        history: Array
+                    },
+                },
+                'bridge_four': {
+                    division: {
+                        name: String,
+                        level: String,
+                        color: String,
+                    },
+                    winstreaks: {
+                        best: {
+                        value: Number,
+                        history: Array
+                    },
+                        current: {
+                        value: Number,
+                        history: Array
+                    },
+                    },
+                    kills: {
+                        value: Number,
+                        history: Array
+                    },
+                    deaths: {
+                        value: Number,
+                        history: Array
+                    },
+                    wins: {
+                        value: Number,
+                        history: Array
+                    },
+                    losses: {
+                        value: Number,
+                        history: Array
+                    },
+                    swings: {
+                        value: Number,
+                        history: Array
+                    },
+                    hits: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsShot: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsHit: {
+                        value: Number,
+                        history: Array
+                    },
+                    goals: {
+                        value: Number,
+                        history: Array
+                    },
+                },
+                'bridge_2v2v2v2': {
+                    division: {
+                        name: String,
+                        level: String,
+                        color: String,
+                    },
+                    winstreaks: {
+                        best: {
+                        value: Number,
+                        history: Array
+                    },
+                        current: {
+                        value: Number,
+                        history: Array
+                    },
+                    },
+                    kills: {
+                        value: Number,
+                        history: Array
+                    },
+                    deaths: {
+                        value: Number,
+                        history: Array
+                    },
+                    wins: {
+                        value: Number,
+                        history: Array
+                    },
+                    losses: {
+                        value: Number,
+                        history: Array
+                    },
+                    swings: {
+                        value: Number,
+                        history: Array
+                    },
+                    hits: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsShot: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsHit: {
+                        value: Number,
+                        history: Array
+                    },
+                    goals: {
+                        value: Number,
+                        history: Array
+                    },
+                },
+                'bridge_3v3v3v3': {
+                    division: {
+                        name: String,
+                        level: String,
+                        color: String,
+                    },
+                    winstreaks: {
+                        best: {
+                        value: Number,
+                        history: Array
+                    },
+                        current: {
+                        value: Number,
+                        history: Array
+                    },
+                    },
+                    kills: {
+                        value: Number,
+                        history: Array
+                    },
+                    deaths: {
+                        value: Number,
+                        history: Array
+                    },
+                    wins: {
+                        value: Number,
+                        history: Array
+                    },
+                    losses: {
+                        value: Number,
+                        history: Array
+                    },
+                    swings: {
+                        value: Number,
+                        history: Array
+                    },
+                    hits: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsShot: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsHit: {
+                        value: Number,
+                        history: Array
+                    },
+                    goals: {
+                        value: Number,
+                        history: Array
+                    },
+                },
+                'capture_threes': {
+                    division: {
+                        name: String,
+                        level: String,
+                        color: String,
+                    },
+                    winstreaks: {
+                        best: {
+                        value: Number,
+                        history: Array
+                    },
+                        current: {
+                        value: Number,
+                        history: Array
+                    },
+                    },
+                    kills: {
+                        value: Number,
+                        history: Array
+                    },
+                    deaths: {
+                        value: Number,
+                        history: Array
+                    },
+                    wins: {
+                        value: Number,
+                        history: Array
+                    },
+                    losses: {
+                        value: Number,
+                        history: Array
+                    },
+                    swings: {
+                        value: Number,
+                        history: Array
+                    },
+                    hits: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsShot: {
+                        value: Number,
+                        history: Array
+                    },
+                    arrowsHit: {
+                        value: Number,
+                        history: Array
+                    },
+                    goals: {
+                        value: Number,
+                        history: Array
+                    },
+                },
             }
         }
     },

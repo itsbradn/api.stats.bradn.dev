@@ -5,6 +5,7 @@ import ErrorResponse from '../models/errorResponse.model';
 import hypixelModel, { IHypixel } from '../models/hypixel.model';
 import { handleGetRequest } from './Request.module';
 import { ConvertUsernameToUUID } from './Minecraft.module';
+import TNTGamesGame from './stats/games/TNTGames.game';
 
 const routes = {
     player: `https://api.hypixel.net/player`
@@ -23,6 +24,9 @@ export interface HypixelResponse {
         rankColor: HYPIXEL_RANK_COLOR | string,
         plusColor: HYPIXEL_PLUS_COLOR | string,
         history: Array<{type: HYPIXEL_RANK, timePurchased: Date}>
+    },
+    stats: {
+        TNTGames: IHypixel["stats"]["TNTGames"],
     },
     gifted: {
         ranks: number,
@@ -54,6 +58,9 @@ async function GetHypixelUserByUUID(uuid: string): Promise<HypixelResponse | Err
             rankColor: model.rank.rankColor,
             plusColor: model.rank.plusColor,
             history: model.rank.history,
+        },
+        stats: {
+            TNTGames: model.stats.TNTGames
         },
         gifted: {
             ranks: model.gifted.ranks,
@@ -93,6 +100,8 @@ async function GetHypixelModelByUUID(uuid: string): Promise<HydratedDocument<IHy
         model.rank.current = player.player.newPackageRank;
         model.rank.plusColor = player.player.rankPlusColor;
         model.refreshAt = new Date(Date.now() + (parseInt(process.env.HYPIXEL_REFRESH_MINUTES || "5") * 60 * 1000));
+
+        model = TNTGamesGame(model, player.player.stats.TNTGames);
 
         await model.save();
     }

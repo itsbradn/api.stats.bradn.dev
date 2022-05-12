@@ -1,9 +1,14 @@
 import { Schema, model, Types } from "mongoose";
 import { HYPIXEL_RANK, HYPIXEL_RANK_COLOR, HYPIXEL_PLUS_COLOR } from '../constant/hypixel.constant';
 
-interface HypixelStat {
-    value: string,
+export interface HypixelStat {
+    value: string | number,
     date: Date,
+}
+
+export interface HypixelSection {
+    value: number | string,
+    history: Array<HypixelStat>
 }
 
 export interface IHypixel {
@@ -27,291 +32,99 @@ export interface IHypixel {
     },
     stats: {
         "TNTGames": {
-            "coins": {
-                value: number,
-                history: Array<HypixelStat>
-            },
-            "wins": {
-                value: number,
-                history: Array<HypixelStat>
-            },
+            "coins": HypixelSection,
+            "wins": HypixelSection
             "modes": {
                 tnt_tag: {
-                    kills: {
-                        value: number,
-                        history: Array<HypixelStat>
-                    },
-                    wins: {
-                        value: number,
-                        history: Array<HypixelStat>
-                    },
-                    deaths: {
-                        value: number,
-                        history: Array<HypixelStat>
-                    },
+                    kills: HypixelSection,
+                    wins: HypixelSection,
+                    deaths: HypixelSection,
                 },
                 tnt_run: {
-                    deaths: {
-                        value: number,
-                        history: Array<HypixelStat>
-                    },
-                    wins: {
-                        value: number,
-                        history: Array<HypixelStat>
-                    },
-                    record: {
-                        value: number,
-                        history: Array<HypixelStat>
-                    },
+                    deaths: HypixelSection,
+                    wins: HypixelSection,
+                    record: HypixelSection,
                 },
                 pvp_run: {
-                    deaths: {
-                        value: number,
-                        history: Array<HypixelStat>
-                    },
-                    kills: {
-                        value: number,
-                        history: Array<HypixelStat>
-                    },
-                    wins: {
-                        value: number,
-                        history: Array<HypixelStat>
-                    },
-                    record: {
-                        value: number,
-                        history: Array<HypixelStat>
-                    },
+                    deaths: HypixelSection,
+                    kills: HypixelSection,
+                    wins: HypixelSection,
+                    record: HypixelSection,
                 },
                 bow_spleef: {
-                    deaths: {
-                        value: number,
-                        history: Array<HypixelStat>
-                    },
-                    wins: {
-                        value: number,
-                        history: Array<HypixelStat>
-                    },
-                    tags: {
-                        value: number,
-                        history: Array<HypixelStat>
-                    },
+                    deaths: HypixelSection,
+                    wins: HypixelSection,
+                    tags: HypixelSection,
                 },
                 wizards: {
-                    wins: {
-                        value: number,
-                        history: Array<HypixelStat>
-                    },
-                    kills: {
-                        value: number,
-                        history: Array<HypixelStat>
-                    },
-                    deaths: {
-                        value: number,
-                        history: Array<HypixelStat>
-                    },
-                    assists: {
-                        value: number,
-                        history: Array<HypixelStat>
-                    },
+                    wins: HypixelSection,
+                    kills: HypixelSection,
+                    deaths: HypixelSection,
+                    assists: HypixelSection,
                     classes: {
                         current: string,
                         ancient: {
-                            kills: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
-                            deaths: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
-                            assists: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
-                            power: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
-                            regen: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
+                            kills: HypixelSection,
+                            deaths: HypixelSection,
+                            assists: HypixelSection,
+                            power: HypixelSection,
+                            regen: HypixelSection,
                         },
                         blood: {
-                            kills: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
-                            deaths: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
-                            assists: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
-                            power: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
-                            regen: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
+                            kills: HypixelSection,
+                            deaths: HypixelSection,
+                            assists: HypixelSection,
+                            power: HypixelSection,
+                            regen: HypixelSection,
                         },
                         fire: {
-                            kills: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
-                            deaths: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
-                            assists: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
-                            power: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
-                            regen: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
+                            kills: HypixelSection,
+                            deaths: HypixelSection,
+                            assists: HypixelSection,
+                            power: HypixelSection,
+                            regen: HypixelSection,
                         },
                         hydro: {
-                            kills: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
-                            deaths: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
-                            assists: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
-                            power: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
-                            regen: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
+                            kills: HypixelSection,
+                            deaths: HypixelSection,
+                            assists: HypixelSection,
+                            power: HypixelSection,
+                            regen: HypixelSection,
                         },
                         ice: {
-                            kills: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
-                            deaths: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
-                            assists: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
-                            power: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
-                            regen: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
+                            kills: HypixelSection,
+                            deaths: HypixelSection,
+                            assists: HypixelSection,
+                            power: HypixelSection,
+                            regen: HypixelSection,
                         },
                         kinetic: {
-                            kills: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
-                            deaths: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
-                            assists: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
-                            power: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
-                            regen: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
+                            kills: HypixelSection,
+                            deaths: HypixelSection,
+                            assists: HypixelSection,
+                            power: HypixelSection,
+                            regen: HypixelSection,
                         },
                         storm: {
-                            kills: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
-                            deaths: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
-                            assists: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
-                            power: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
-                            regen: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
+                            kills: HypixelSection,
+                            deaths: HypixelSection,
+                            assists: HypixelSection,
+                            power: HypixelSection,
+                            regen: HypixelSection,
                         },
                         toxic: {
-                            kills: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
-                            deaths: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
-                            assists: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
-                            power: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
-                            regen: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
+                            kills: HypixelSection,
+                            deaths: HypixelSection,
+                            assists: HypixelSection,
+                            power: HypixelSection,
+                            regen: HypixelSection,
                         },
                         wither: {
-                            kills: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
-                            deaths: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
-                            assists: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
-                            power: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
-                            regen: {
-                                value: number,
-                                history: Array<HypixelStat>
-                            },
+                            kills: HypixelSection,
+                            deaths: HypixelSection,
+                            assists: HypixelSection,
+                            power: HypixelSection,
+                            regen: HypixelSection,
                         },
                     }
                 }

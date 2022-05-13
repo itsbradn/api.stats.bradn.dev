@@ -166,11 +166,6 @@ export interface IHypixel {
                     arrowsHit: HypixelSection,
                 },
                 'uhc_doubles': {
-                    division: {
-                        name: string,
-                        level: string,
-                        color: string,
-                    },
                     winstreaks: {
                         best: HypixelSection,
                         current: HypixelSection,
@@ -185,11 +180,6 @@ export interface IHypixel {
                     arrowsHit: HypixelSection,
                 },
                 'uhc_four': {
-                    division: {
-                        name: string,
-                        level: string,
-                        color: string,
-                    },
                     winstreaks: {
                         best: HypixelSection,
                         current: HypixelSection,
@@ -204,11 +194,6 @@ export interface IHypixel {
                     arrowsHit: HypixelSection,
                 },
                 'uhc_meetup': {
-                    division: {
-                        name: string,
-                        level: string,
-                        color: string,
-                    },
                     winstreaks: {
                         best: HypixelSection,
                         current: HypixelSection,
@@ -242,11 +227,6 @@ export interface IHypixel {
                     arrowsHit: HypixelSection,
                 },
                 'op_doubles': {
-                    division: {
-                        name: string,
-                        level: string,
-                        color: string,
-                    },
                     winstreaks: {
                         best: HypixelSection,
                         current: HypixelSection,
@@ -280,11 +260,6 @@ export interface IHypixel {
                     arrowsHit: HypixelSection,
                 },
                 'sw_doubles': {
-                    division: {
-                        name: string,
-                        level: string,
-                        color: string,
-                    },
                     winstreaks: {
                         best: HypixelSection,
                         current: HypixelSection,
@@ -511,11 +486,6 @@ export interface IHypixel {
                     goals: HypixelSection,
                 },
                 'bridge_doubles': {
-                    division: {
-                        name: string,
-                        level: string,
-                        color: string,
-                    },
                     winstreaks: {
                         best: HypixelSection,
                         current: HypixelSection,
@@ -531,11 +501,6 @@ export interface IHypixel {
                     goals: HypixelSection,
                 },
                 'bridge_threes': {
-                    division: {
-                        name: string,
-                        level: string,
-                        color: string,
-                    },
                     winstreaks: {
                         best: HypixelSection,
                         current: HypixelSection,
@@ -551,11 +516,6 @@ export interface IHypixel {
                     goals: HypixelSection,
                 },
                 'bridge_four': {
-                    division: {
-                        name: string,
-                        level: string,
-                        color: string,
-                    },
                     winstreaks: {
                         best: HypixelSection,
                         current: HypixelSection,
@@ -571,11 +531,6 @@ export interface IHypixel {
                     goals: HypixelSection,
                 },
                 'bridge_2v2v2v2': {
-                    division: {
-                        name: string,
-                        level: string,
-                        color: string,
-                    },
                     winstreaks: {
                         best: HypixelSection,
                         current: HypixelSection,
@@ -591,11 +546,6 @@ export interface IHypixel {
                     goals: HypixelSection,
                 },
                 'bridge_3v3v3v3': {
-                    division: {
-                        name: string,
-                        level: string,
-                        color: string,
-                    },
                     winstreaks: {
                         best: HypixelSection,
                         current: HypixelSection,
@@ -611,11 +561,6 @@ export interface IHypixel {
                     goals: HypixelSection,
                 },
                 'capture_threes': {
-                    division: {
-                        name: string,
-                        level: string,
-                        color: string,
-                    },
                     winstreaks: {
                         best: HypixelSection,
                         current: HypixelSection,
@@ -1050,11 +995,6 @@ const hypixelSchema = new Schema<IHypixel>({
                     },
                 },
                 'uhc_doubles': {
-                    division: {
-                        name: String,
-                        level: String,
-                        color: String,
-                    },
                     winstreaks: {
                         best: {
                         value: Number,
@@ -1099,11 +1039,6 @@ const hypixelSchema = new Schema<IHypixel>({
                     },
                 },
                 'uhc_four': {
-                    division: {
-                        name: String,
-                        level: String,
-                        color: String,
-                    },
                     winstreaks: {
                         best: {
                         value: Number,
@@ -1148,11 +1083,6 @@ const hypixelSchema = new Schema<IHypixel>({
                     },
                 },
                 'uhc_meetup': {
-                    division: {
-                        name: String,
-                        level: String,
-                        color: String,
-                    },
                     winstreaks: {
                         best: {
                         value: Number,
@@ -1246,11 +1176,6 @@ const hypixelSchema = new Schema<IHypixel>({
                     },
                 },
                 'op_doubles': {
-                    division: {
-                        name: String,
-                        level: String,
-                        color: String,
-                    },
                     winstreaks: {
                         best: {
                         value: Number,
@@ -1344,11 +1269,6 @@ const hypixelSchema = new Schema<IHypixel>({
                     },
                 },
                 'sw_doubles': {
-                    division: {
-                        name: String,
-                        level: String,
-                        color: String,
-                    },
                     winstreaks: {
                         best: {
                         value: Number,
@@ -1938,11 +1858,6 @@ const hypixelSchema = new Schema<IHypixel>({
                     },
                 },
                 'bridge_doubles': {
-                    division: {
-                        name: String,
-                        level: String,
-                        color: String,
-                    },
                     winstreaks: {
                         best: {
                         value: Number,
@@ -1991,11 +1906,6 @@ const hypixelSchema = new Schema<IHypixel>({
                     },
                 },
                 'bridge_threes': {
-                    division: {
-                        name: String,
-                        level: String,
-                        color: String,
-                    },
                     winstreaks: {
                         best: {
                         value: Number,
@@ -2044,11 +1954,6 @@ const hypixelSchema = new Schema<IHypixel>({
                     },
                 },
                 'bridge_four': {
-                    division: {
-                        name: String,
-                        level: String,
-                        color: String,
-                    },
                     winstreaks: {
                         best: {
                         value: Number,
@@ -2097,11 +2002,6 @@ const hypixelSchema = new Schema<IHypixel>({
                     },
                 },
                 'bridge_2v2v2v2': {
-                    division: {
-                        name: String,
-                        level: String,
-                        color: String,
-                    },
                     winstreaks: {
                         best: {
                         value: Number,
@@ -2150,11 +2050,6 @@ const hypixelSchema = new Schema<IHypixel>({
                     },
                 },
                 'bridge_3v3v3v3': {
-                    division: {
-                        name: String,
-                        level: String,
-                        color: String,
-                    },
                     winstreaks: {
                         best: {
                         value: Number,
@@ -2203,11 +2098,6 @@ const hypixelSchema = new Schema<IHypixel>({
                     },
                 },
                 'capture_threes': {
-                    division: {
-                        name: String,
-                        level: String,
-                        color: String,
-                    },
                     winstreaks: {
                         best: {
                         value: Number,

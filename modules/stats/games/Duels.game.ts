@@ -314,7 +314,321 @@ export default (model: HydratedDocument<IHypixel>, {
     uhc_celestial_title_prestige = undefined,
     uhc_divine_title_prestige = undefined,
     uhc_ascended_title_prestige = undefined,
+    op_rookie_title_prestige = undefined,
+    op_iron_title_prestige = undefined,
+    op_gold_title_prestige = undefined,
+    op_diamond_title_prestige = undefined,
+    op_master_title_prestige = undefined,
+    op_legend_title_prestige = undefined,
+    op_grandmaster_title_prestige = undefined,
+    op_godlike_title_prestige = undefined,
+    op_celestial_title_prestige = undefined,
+    op_divine_title_prestige = undefined,
+    op_ascended_title_prestige = undefined,
+    skywars_rookie_title_prestige = undefined,
+    skywars_iron_title_prestige = undefined,
+    skywars_gold_title_prestige = undefined,
+    skywars_diamond_title_prestige = undefined,
+    skywars_master_title_prestige = undefined,
+    skywars_legend_title_prestige = undefined,
+    skywars_grandmaster_title_prestige = undefined,
+    skywars_godlike_title_prestige = undefined,
+    skywars_celestial_title_prestige = undefined,
+    skywars_divine_title_prestige = undefined,
+    skywars_ascended_title_prestige = undefined,
+    bow_rookie_title_prestige = undefined,
+    bow_iron_title_prestige = undefined,
+    bow_gold_title_prestige = undefined,
+    bow_diamond_title_prestige = undefined,
+    bow_master_title_prestige = undefined,
+    bow_legend_title_prestige = undefined,
+    bow_grandmaster_title_prestige = undefined,
+    bow_godlike_title_prestige = undefined,
+    bow_celestial_title_prestige = undefined,
+    bow_divine_title_prestige = undefined,
+    bow_ascended_title_prestige = undefined,
+    blitz_rookie_title_prestige = undefined,
+    blitz_iron_title_prestige = undefined,
+    blitz_gold_title_prestige = undefined,
+    blitz_diamond_title_prestige = undefined,
+    blitz_master_title_prestige = undefined,
+    blitz_legend_title_prestige = undefined,
+    blitz_grandmaster_title_prestige = undefined,
+    blitz_godlike_title_prestige = undefined,
+    blitz_celestial_title_prestige = undefined,
+    blitz_divine_title_prestige = undefined,
+    blitz_ascended_title_prestige = undefined,
+    mega_walls_rookie_title_prestige = undefined,
+    mega_walls_iron_title_prestige = undefined,
+    mega_walls_gold_title_prestige = undefined,
+    mega_walls_diamond_title_prestige = undefined,
+    mega_walls_master_title_prestige = undefined,
+    mega_walls_legend_title_prestige = undefined,
+    mega_walls_grandmaster_title_prestige = undefined,
+    mega_walls_godlike_title_prestige = undefined,
+    mega_walls_celestial_title_prestige = undefined,
+    mega_walls_divine_title_prestige = undefined,
+    mega_walls_ascended_title_prestige = undefined,
+    sumo_rookie_title_prestige = undefined,
+    sumo_iron_title_prestige = undefined,
+    sumo_gold_title_prestige = undefined,
+    sumo_diamond_title_prestige = undefined,
+    sumo_master_title_prestige = undefined,
+    sumo_legend_title_prestige = undefined,
+    sumo_grandmaster_title_prestige = undefined,
+    sumo_godlike_title_prestige = undefined,
+    sumo_celestial_title_prestige = undefined,
+    sumo_divine_title_prestige = undefined,
+    sumo_ascended_title_prestige = undefined,
+    tnt_games_rookie_title_prestige = undefined,
+    tnt_games_iron_title_prestige = undefined,
+    tnt_games_gold_title_prestige = undefined,
+    tnt_games_diamond_title_prestige = undefined,
+    tnt_games_master_title_prestige = undefined,
+    tnt_games_legend_title_prestige = undefined,
+    tnt_games_grandmaster_title_prestige = undefined,
+    tnt_games_godlike_title_prestige = undefined,
+    tnt_games_celestial_title_prestige = undefined,
+    tnt_games_divine_title_prestige = undefined,
+    tnt_games_ascended_title_prestige = undefined,
+    parkour_rookie_title_prestige = undefined,
+    parkour_iron_title_prestige = undefined,
+    parkour_gold_title_prestige = undefined,
+    parkour_diamond_title_prestige = undefined,
+    parkour_master_title_prestige = undefined,
+    parkour_legend_title_prestige = undefined,
+    parkour_grandmaster_title_prestige = undefined,
+    parkour_godlike_title_prestige = undefined,
+    parkour_celestial_title_prestige = undefined,
+    parkour_divine_title_prestige = undefined,
+    parkour_ascended_title_prestige = undefined,
+    boxing_rookie_title_prestige = undefined,
+    boxing_iron_title_prestige = undefined,
+    boxing_gold_title_prestige = undefined,
+    boxing_diamond_title_prestige = undefined,
+    boxing_master_title_prestige = undefined,
+    boxing_legend_title_prestige = undefined,
+    boxing_grandmaster_title_prestige = undefined,
+    boxing_godlike_title_prestige = undefined,
+    boxing_celestial_title_prestige = undefined,
+    boxing_divine_title_prestige = undefined,
+    boxing_ascended_title_prestige = undefined,
+    classic_rookie_title_prestige = undefined,
+    classic_iron_title_prestige = undefined,
+    classic_gold_title_prestige = undefined,
+    classic_diamond_title_prestige = undefined,
+    classic_master_title_prestige = undefined,
+    classic_legend_title_prestige = undefined,
+    classic_grandmaster_title_prestige = undefined,
+    classic_godlike_title_prestige = undefined,
+    classic_celestial_title_prestige = undefined,
+    classic_divine_title_prestige = undefined,
+    classic_ascended_title_prestige = undefined,
+    no_debuff_rookie_title_prestige = undefined,
+    no_debuff_iron_title_prestige = undefined,
+    no_debuff_gold_title_prestige = undefined,
+    no_debuff_diamond_title_prestige = undefined,
+    no_debuff_master_title_prestige = undefined,
+    no_debuff_legend_title_prestige = undefined,
+    no_debuff_grandmaster_title_prestige = undefined,
+    no_debuff_godlike_title_prestige = undefined,
+    no_debuff_celestial_title_prestige = undefined,
+    no_debuff_divine_title_prestige = undefined,
+    no_debuff_ascended_title_prestige = undefined,
+    combo_rookie_title_prestige = undefined,
+    combo_iron_title_prestige = undefined,
+    combo_gold_title_prestige = undefined,
+    combo_diamond_title_prestige = undefined,
+    combo_master_title_prestige = undefined,
+    combo_legend_title_prestige = undefined,
+    combo_grandmaster_title_prestige = undefined,
+    combo_godlike_title_prestige = undefined,
+    combo_celestial_title_prestige = undefined,
+    combo_divine_title_prestige = undefined,
+    combo_ascended_title_prestige = undefined,
+    bridge_rookie_title_prestige = undefined,
+    bridge_iron_title_prestige = undefined,
+    bridge_gold_title_prestige = undefined,
+    bridge_diamond_title_prestige = undefined,
+    bridge_master_title_prestige = undefined,
+    bridge_legend_title_prestige = undefined,
+    bridge_grandmaster_title_prestige = undefined,
+    bridge_godlike_title_prestige = undefined,
+    bridge_celestial_title_prestige = undefined,
+    bridge_divine_title_prestige = undefined,
+    bridge_ascended_title_prestige = undefined,
 }): HydratedDocument<IHypixel> => {
+
+    const divisionData: Keyable = {
+        uhc_rookie_title_prestige,
+        uhc_iron_title_prestige,
+        uhc_gold_title_prestige,
+        uhc_diamond_title_prestige,
+        uhc_master_title_prestige,
+        uhc_legend_title_prestige,
+        uhc_grandmaster_title_prestige,
+        uhc_godlike_title_prestige,
+        uhc_celestial_title_prestige,
+        uhc_divine_title_prestige,
+        uhc_ascended_title_prestige,
+        op_rookie_title_prestige,
+        op_iron_title_prestige,
+        op_gold_title_prestige,
+        op_diamond_title_prestige,
+        op_master_title_prestige,
+        op_legend_title_prestige,
+        op_grandmaster_title_prestige,
+        op_godlike_title_prestige,
+        op_celestial_title_prestige,
+        op_divine_title_prestige,
+        op_ascended_title_prestige,
+        skywars_rookie_title_prestige,
+        skywars_iron_title_prestige,
+        skywars_gold_title_prestige,
+        skywars_diamond_title_prestige,
+        skywars_master_title_prestige,
+        skywars_legend_title_prestige,
+        skywars_grandmaster_title_prestige,
+        skywars_godlike_title_prestige,
+        skywars_celestial_title_prestige,
+        skywars_divine_title_prestige,
+        skywars_ascended_title_prestige,
+        bow_rookie_title_prestige,
+        bow_iron_title_prestige,
+        bow_gold_title_prestige,
+        bow_diamond_title_prestige,
+        bow_master_title_prestige,
+        bow_legend_title_prestige,
+        bow_grandmaster_title_prestige,
+        bow_godlike_title_prestige,
+        bow_celestial_title_prestige,
+        bow_divine_title_prestige,
+        bow_ascended_title_prestige,
+        blitz_rookie_title_prestige,
+        blitz_iron_title_prestige,
+        blitz_gold_title_prestige,
+        blitz_diamond_title_prestige,
+        blitz_master_title_prestige,
+        blitz_legend_title_prestige,
+        blitz_grandmaster_title_prestige,
+        blitz_godlike_title_prestige,
+        blitz_celestial_title_prestige,
+        blitz_divine_title_prestige,
+        blitz_ascended_title_prestige,
+        mega_walls_rookie_title_prestige,
+        mega_walls_iron_title_prestige,
+        mega_walls_gold_title_prestige,
+        mega_walls_diamond_title_prestige,
+        mega_walls_master_title_prestige,
+        mega_walls_legend_title_prestige,
+        mega_walls_grandmaster_title_prestige,
+        mega_walls_godlike_title_prestige,
+        mega_walls_celestial_title_prestige,
+        mega_walls_divine_title_prestige,
+        mega_walls_ascended_title_prestige,
+        sumo_rookie_title_prestige,
+        sumo_iron_title_prestige,
+        sumo_gold_title_prestige,
+        sumo_diamond_title_prestige,
+        sumo_master_title_prestige,
+        sumo_legend_title_prestige,
+        sumo_grandmaster_title_prestige,
+        sumo_godlike_title_prestige,
+        sumo_celestial_title_prestige,
+        sumo_divine_title_prestige,
+        sumo_ascended_title_prestige,
+        tnt_games_rookie_title_prestige,
+        tnt_games_iron_title_prestige,
+        tnt_games_gold_title_prestige,
+        tnt_games_diamond_title_prestige,
+        tnt_games_master_title_prestige,
+        tnt_games_legend_title_prestige,
+        tnt_games_grandmaster_title_prestige,
+        tnt_games_godlike_title_prestige,
+        tnt_games_celestial_title_prestige,
+        tnt_games_divine_title_prestige,
+        tnt_games_ascended_title_prestige,
+        parkour_rookie_title_prestige,
+        parkour_iron_title_prestige,
+        parkour_gold_title_prestige,
+        parkour_diamond_title_prestige,
+        parkour_master_title_prestige,
+        parkour_legend_title_prestige,
+        parkour_grandmaster_title_prestige,
+        parkour_godlike_title_prestige,
+        parkour_celestial_title_prestige,
+        parkour_divine_title_prestige,
+        parkour_ascended_title_prestige,
+        boxing_rookie_title_prestige,
+        boxing_iron_title_prestige,
+        boxing_gold_title_prestige,
+        boxing_diamond_title_prestige,
+        boxing_master_title_prestige,
+        boxing_legend_title_prestige,
+        boxing_grandmaster_title_prestige,
+        boxing_godlike_title_prestige,
+        boxing_celestial_title_prestige,
+        boxing_divine_title_prestige,
+        boxing_ascended_title_prestige,
+        classic_rookie_title_prestige,
+        classic_iron_title_prestige,
+        classic_gold_title_prestige,
+        classic_diamond_title_prestige,
+        classic_master_title_prestige,
+        classic_legend_title_prestige,
+        classic_grandmaster_title_prestige,
+        classic_godlike_title_prestige,
+        classic_celestial_title_prestige,
+        classic_divine_title_prestige,
+        classic_ascended_title_prestige,
+        no_debuff_rookie_title_prestige,
+        no_debuff_iron_title_prestige,
+        no_debuff_gold_title_prestige,
+        no_debuff_diamond_title_prestige,
+        no_debuff_master_title_prestige,
+        no_debuff_legend_title_prestige,
+        no_debuff_grandmaster_title_prestige,
+        no_debuff_godlike_title_prestige,
+        no_debuff_celestial_title_prestige,
+        no_debuff_divine_title_prestige,
+        no_debuff_ascended_title_prestige,
+        combo_rookie_title_prestige,
+        combo_iron_title_prestige,
+        combo_gold_title_prestige,
+        combo_diamond_title_prestige,
+        combo_master_title_prestige,
+        combo_legend_title_prestige,
+        combo_grandmaster_title_prestige,
+        combo_godlike_title_prestige,
+        combo_celestial_title_prestige,
+        combo_divine_title_prestige,
+        combo_ascended_title_prestige,
+        bridge_rookie_title_prestige,
+        bridge_iron_title_prestige,
+        bridge_gold_title_prestige,
+        bridge_diamond_title_prestige,
+        bridge_master_title_prestige,
+        bridge_legend_title_prestige,
+        bridge_grandmaster_title_prestige,
+        bridge_godlike_title_prestige,
+        bridge_celestial_title_prestige,
+        bridge_divine_title_prestige,
+        bridge_ascended_title_prestige,
+    };
+
+    const divisions = [
+        { name: 'Rookie', id: 'rookie', color: 'darkgray' },
+        { name: 'Iron', id: 'iron', color: 'white' },
+        { name: 'Gold', id: 'gold', color: 'gold' },
+        { name: 'Diamond', id: 'diamond', color: 'aqua' },
+        { name: 'Master', id: 'master', color: 'darkgreen' },
+        { name: 'Legend', id: 'legend', color: 'darkred' },
+        { name: 'Grandmaster', id: 'grandmaster', color: 'yellow' },
+        { name: 'Godlike', id: 'godlike', color: 'purple' },
+        { name: 'CELESTIAL', id: 'celestial', color: 'aqua' },
+        { name: 'DIVINE', id: 'divine', color: 'gold' },
+        { name: 'ASCENDED', id: 'ascended', color: 'red' },
+    ];
 
     // someone please optimize this im too dumb with typescript !!!!!!!!!!!!!!!! HELPPPP !!!!!!!!!!
 
@@ -332,6 +646,7 @@ export default (model: HydratedDocument<IHypixel>, {
     model.stats.Duels.winstreaks.current = handleSection(model.stats.Duels.winstreaks.current, current_winstreak);
     model.stats.Duels.winstreaks.best = handleSection(model.stats.Duels.winstreaks.best, best_overall_winstreak);
 
+    model.stats.Duels.modes.uhc_duel.division = getDivision('uhc');
     // UHC 1v1
     model.stats.Duels.modes.uhc_duel.kills = handleSection(model.stats.Duels.modes.uhc_duel.kills, uhc_duel_kills);
     model.stats.Duels.modes.uhc_duel.deaths = handleSection(model.stats.Duels.modes.uhc_duel.deaths, uhc_duel_deaths);
@@ -380,6 +695,7 @@ export default (model: HydratedDocument<IHypixel>, {
     model.stats.Duels.modes.uhc_meetup.arrowsShot = handleSection(model.stats.Duels.modes.uhc_meetup.arrowsShot, uhc_meetup_bow_hits);
     model.stats.Duels.modes.uhc_meetup.arrowsHit = handleSection(model.stats.Duels.modes.uhc_meetup.arrowsHit, uhc_meetup_bow_shots);
 
+    model.stats.Duels.modes.op_duel.division = getDivision('op');
     // OP 1v1
     model.stats.Duels.modes.op_duel.kills = handleSection(model.stats.Duels.modes.op_duel.kills, op_duel_kills);
     model.stats.Duels.modes.op_duel.deaths = handleSection(model.stats.Duels.modes.op_duel.deaths, op_duel_deaths);
@@ -404,6 +720,8 @@ export default (model: HydratedDocument<IHypixel>, {
     model.stats.Duels.modes.op_doubles.arrowsShot = handleSection(model.stats.Duels.modes.op_doubles.arrowsShot, op_doubles_bow_shots);
     model.stats.Duels.modes.op_doubles.arrowsHit = handleSection(model.stats.Duels.modes.op_doubles.arrowsHit, op_doubles_bow_hits);
 
+
+    model.stats.Duels.modes.sw_duel.division = getDivision('skywars');
     // SW 1v1
     model.stats.Duels.modes.sw_duel.kills = handleSection(model.stats.Duels.modes.sw_duel.kills, sw_duel_kills);
     model.stats.Duels.modes.sw_duel.deaths = handleSection(model.stats.Duels.modes.sw_duel.deaths, sw_duel_deaths);
@@ -428,6 +746,7 @@ export default (model: HydratedDocument<IHypixel>, {
     model.stats.Duels.modes.sw_doubles.arrowsShot = handleSection(model.stats.Duels.modes.sw_doubles.arrowsShot, sw_doubles_bow_shots);
     model.stats.Duels.modes.sw_doubles.arrowsHit = handleSection(model.stats.Duels.modes.sw_doubles.arrowsHit, sw_doubles_bow_hits);
 
+    model.stats.Duels.modes.bow_duel.division = getDivision('bow');
     // Bow 1v1
     model.stats.Duels.modes.bow_duel.kills = handleSection(model.stats.Duels.modes.bow_duel.kills, bow_duel_kills);
     model.stats.Duels.modes.bow_duel.deaths = handleSection(model.stats.Duels.modes.bow_duel.deaths, bow_duel_deaths);
@@ -440,6 +759,7 @@ export default (model: HydratedDocument<IHypixel>, {
     model.stats.Duels.modes.bow_duel.arrowsShot = handleSection(model.stats.Duels.modes.bow_duel.arrowsShot, bow_duel_bow_shots);
     model.stats.Duels.modes.bow_duel.arrowsHit = handleSection(model.stats.Duels.modes.bow_duel.arrowsHit, bow_duel_bow_hits);
 
+    model.stats.Duels.modes.blitz_duel.division = getDivision('blitz');
     // Blitz 1v1
     model.stats.Duels.modes.blitz_duel.kills = handleSection(model.stats.Duels.modes.blitz_duel.kills, blitz_duel_kills);
     model.stats.Duels.modes.blitz_duel.deaths = handleSection(model.stats.Duels.modes.blitz_duel.deaths, blitz_duel_deaths);
@@ -452,6 +772,7 @@ export default (model: HydratedDocument<IHypixel>, {
     model.stats.Duels.modes.blitz_duel.arrowsShot = handleSection(model.stats.Duels.modes.blitz_duel.arrowsShot, blitz_duel_bow_shots);
     model.stats.Duels.modes.blitz_duel.arrowsHit = handleSection(model.stats.Duels.modes.blitz_duel.arrowsHit, blitz_duel_bow_hits);
 
+    model.stats.Duels.modes.mw_duel.division = getDivision('mega_walls');
     // MegaWalls
     model.stats.Duels.modes.mw_duel.kills = handleSection(model.stats.Duels.modes.mw_duel.kills, mw_duel_kills);
     model.stats.Duels.modes.mw_duel.deaths = handleSection(model.stats.Duels.modes.mw_duel.deaths, mw_duel_deaths);
@@ -464,6 +785,7 @@ export default (model: HydratedDocument<IHypixel>, {
     model.stats.Duels.modes.mw_duel.arrowsShot = handleSection(model.stats.Duels.modes.mw_duel.arrowsShot, mw_duel_bow_shots);
     model.stats.Duels.modes.mw_duel.arrowsHit = handleSection(model.stats.Duels.modes.mw_duel.arrowsHit, mw_duel_bow_hits);
 
+    model.stats.Duels.modes.sumo_duel.division = getDivision('sumo');
     // Sumo 1v1
     model.stats.Duels.modes.sumo_duel.kills = handleSection(model.stats.Duels.modes.sumo_duel.kills, sumo_duel_kills);
     model.stats.Duels.modes.sumo_duel.deaths = handleSection(model.stats.Duels.modes.sumo_duel.deaths, sumo_duel_deaths);
@@ -476,6 +798,7 @@ export default (model: HydratedDocument<IHypixel>, {
     model.stats.Duels.modes.sumo_duel.arrowsShot = handleSection(model.stats.Duels.modes.sumo_duel.arrowsShot, sumo_duel_bow_shots);
     model.stats.Duels.modes.sumo_duel.arrowsHit = handleSection(model.stats.Duels.modes.sumo_duel.arrowsHit, sumo_duel_bow_hits);
 
+    model.stats.Duels.modes.bowspleef_duel.division = getDivision('tnt_games');
     // Bowspleef 1v1
     model.stats.Duels.modes.bowspleef_duel.kills = handleSection(model.stats.Duels.modes.bowspleef_duel.kills, bowspleef_duel_kills);
     model.stats.Duels.modes.bowspleef_duel.deaths = handleSection(model.stats.Duels.modes.bowspleef_duel.deaths, bowspleef_duel_deaths);
@@ -488,6 +811,7 @@ export default (model: HydratedDocument<IHypixel>, {
     model.stats.Duels.modes.bowspleef_duel.arrowsShot = handleSection(model.stats.Duels.modes.bowspleef_duel.arrowsShot, bowspleef_duel_bow_shots);
     model.stats.Duels.modes.bowspleef_duel.arrowsHit = handleSection(model.stats.Duels.modes.bowspleef_duel.arrowsHit, bowspleef_duel_bow_hits);
 
+    model.stats.Duels.modes.classic_duel.division = getDivision('classic');
     // Classic 1v1
     model.stats.Duels.modes.classic_duel.kills = handleSection(model.stats.Duels.modes.classic_duel.kills, classic_duel_kills);
     model.stats.Duels.modes.classic_duel.deaths = handleSection(model.stats.Duels.modes.classic_duel.deaths, classic_duel_deaths);
@@ -500,6 +824,7 @@ export default (model: HydratedDocument<IHypixel>, {
     model.stats.Duels.modes.classic_duel.arrowsShot = handleSection(model.stats.Duels.modes.classic_duel.arrowsShot, classic_duel_bow_shots);
     model.stats.Duels.modes.classic_duel.arrowsHit = handleSection(model.stats.Duels.modes.classic_duel.arrowsHit, classic_duel_bow_hits);
 
+    model.stats.Duels.modes.potion_duel.division = getDivision('no_debuff');
     // Potion 1v1
     model.stats.Duels.modes.potion_duel.kills = handleSection(model.stats.Duels.modes.potion_duel.kills, potion_duel_kills);
     model.stats.Duels.modes.potion_duel.deaths = handleSection(model.stats.Duels.modes.potion_duel.deaths, potion_duel_deaths);
@@ -512,6 +837,7 @@ export default (model: HydratedDocument<IHypixel>, {
     model.stats.Duels.modes.potion_duel.arrowsShot = handleSection(model.stats.Duels.modes.potion_duel.arrowsShot, potion_duel_bow_shots);
     model.stats.Duels.modes.potion_duel.arrowsHit = handleSection(model.stats.Duels.modes.potion_duel.arrowsHit, potion_duel_bow_hits);
 
+    model.stats.Duels.modes.combo_duel.division = getDivision('combo');
     // Combo 1v1
     model.stats.Duels.modes.combo_duel.kills = handleSection(model.stats.Duels.modes.combo_duel.kills, combo_duel_kills);
     model.stats.Duels.modes.combo_duel.deaths = handleSection(model.stats.Duels.modes.combo_duel.deaths, combo_duel_deaths);
@@ -523,6 +849,9 @@ export default (model: HydratedDocument<IHypixel>, {
     model.stats.Duels.modes.combo_duel.hits = handleSection(model.stats.Duels.modes.combo_duel.hits, combo_duel_melee_hits);
     model.stats.Duels.modes.combo_duel.arrowsShot = handleSection(model.stats.Duels.modes.combo_duel.arrowsShot, combo_duel_bow_shots);
     model.stats.Duels.modes.combo_duel.arrowsHit = handleSection(model.stats.Duels.modes.combo_duel.arrowsHit, combo_duel_bow_hits);
+
+    model.stats.Duels.bridgeModes.bridge_duel.division = getDivision('bridge');
+    // BRIDGE
 
     model.stats.Duels.bridgeModes.bridge_duel.kills = handleSection(model.stats.Duels.bridgeModes.bridge_duel.kills, (bridge_duel_kills + bridge_duel_bridge_kills));
     model.stats.Duels.bridgeModes.bridge_duel.deaths = handleSection(model.stats.Duels.bridgeModes.bridge_duel.deaths, (bridge_duel_deaths + bridge_duel_bridge_deaths));
@@ -608,37 +937,9 @@ export default (model: HydratedDocument<IHypixel>, {
     model.stats.Duels.bridgeModes.capture_threes.winstreaks.best = handleSection(model.stats.Duels.bridgeModes.capture_threes.winstreaks.best, best_winstreak_mode_capture_threes);
     model.stats.Duels.bridgeModes.capture_threes.winstreaks.current = handleSection(model.stats.Duels.bridgeModes.capture_threes.winstreaks.current, current_winstreak_mode_capture_threes);
 
-    const divisions = [
-        { name: 'Rookie', id: 'rookie', color: 'darkgray' },
-        { name: 'Iron', id: 'iron', color: 'white' },
-        { name: 'Gold', id: 'gold', color: 'gold' },
-        { name: 'Diamond', id: 'diamond', color: 'aqua' },
-        { name: 'Master', id: 'master', color: 'darkgreen' },
-        { name: 'Legend', id: 'legend', color: 'darkred' },
-        { name: 'Grandmaster', id: 'grandmaster', color: 'yellow' },
-        { name: 'Godlike', id: 'godlike', color: 'purple' },
-        { name: 'CELESTIAL', id: 'celestial', color: 'aqua' },
-        { name: 'DIVINE', id: 'divine', color: 'gold' },
-        { name: 'ASCENDED', id: 'ascended', color: 'red' },
-    ];
-
     type Keyable = {
         [key: string]: string | number | undefined
     }
-
-    const divisionData: Keyable = {
-        uhc_rookie_title_prestige,
-        uhc_iron_title_prestige,
-        uhc_gold_title_prestige,
-        uhc_diamond_title_prestige,
-        uhc_master_title_prestige,
-        uhc_legend_title_prestige,
-        uhc_grandmaster_title_prestige,
-        uhc_godlike_title_prestige,
-        uhc_celestial_title_prestige,
-        uhc_divine_title_prestige,
-        uhc_ascended_title_prestige,
-    };
 
     function getDivision(duelType: string) {
         // stolen from 25karma.xys (thank u <3)
@@ -648,7 +949,7 @@ export default (model: HydratedDocument<IHypixel>, {
             if (dat !== undefined) {
                 return {
                     name: `${div.name} ${dat}`,
-                    level: dat,
+                    level: dat.toString(),
                     color: div.color,
                 }
             }

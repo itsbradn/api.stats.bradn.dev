@@ -6,6 +6,7 @@ import hypixelModel, { IHypixel } from '../models/hypixel.model';
 import { handleGetRequest } from './Request.module';
 import { ConvertUsernameToUUID } from './Minecraft.module';
 import TNTGamesGame from './stats/games/TNTGames.game';
+import DuelsGame from './stats/games/Duels.game';
 
 const routes = {
     player: `https://api.hypixel.net/player`
@@ -27,6 +28,7 @@ export interface HypixelResponse {
     },
     stats: {
         TNTGames: IHypixel["stats"]["TNTGames"],
+        Duels: IHypixel["stats"]["Duels"],
     },
     gifted: {
         ranks: number,
@@ -60,7 +62,8 @@ async function GetHypixelUserByUUID(uuid: string): Promise<HypixelResponse | Err
             history: model.rank.history,
         },
         stats: {
-            TNTGames: model.stats.TNTGames
+            TNTGames: model.stats.TNTGames,
+            Duels: model.stats.Duels,
         },
         gifted: {
             ranks: model.gifted.ranks,
@@ -101,6 +104,7 @@ async function GetHypixelModelByUUID(uuid: string): Promise<HydratedDocument<IHy
         model.rank.plusColor = player.player.rankPlusColor;
         model.refreshAt = new Date(Date.now() + (parseInt(process.env.HYPIXEL_REFRESH_MINUTES || "5") * 60 * 1000));
         model = TNTGamesGame(model, player.player.stats.TNTGames);
+        model = DuelsGame(model, player.player.stats.Duels);
 
         await model.save();
     }

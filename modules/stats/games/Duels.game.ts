@@ -1,5 +1,5 @@
 import { HydratedDocument, IndexDefinition } from 'mongoose';
-import {IHypixel, HypixelStat, HypixelSection} from '../../../models/hypixel.model';
+import { IHypixel, HypixelStat, HypixelSection } from '../../../models/hypixel.model';
 
 export default (model: HydratedDocument<IHypixel>, {
     // GAME STATS
@@ -302,6 +302,18 @@ export default (model: HydratedDocument<IHypixel>, {
     capture_threes_bow_shots = 0,
     current_winstreak_mode_capture_threes = 0,
     best_winstreak_mode_capture_threes = 0,
+
+    uhc_rookie_title_prestige = undefined,
+    uhc_iron_title_prestige = undefined,
+    uhc_gold_title_prestige = undefined,
+    uhc_diamond_title_prestige = undefined,
+    uhc_master_title_prestige = undefined,
+    uhc_legend_title_prestige = undefined,
+    uhc_grandmaster_title_prestige = undefined,
+    uhc_godlike_title_prestige = undefined,
+    uhc_celestial_title_prestige = undefined,
+    uhc_divine_title_prestige = undefined,
+    uhc_ascended_title_prestige = undefined,
 }): HydratedDocument<IHypixel> => {
 
     // someone please optimize this im too dumb with typescript !!!!!!!!!!!!!!!! HELPPPP !!!!!!!!!!
@@ -511,6 +523,142 @@ export default (model: HydratedDocument<IHypixel>, {
     model.stats.Duels.modes.combo_duel.hits = handleSection(model.stats.Duels.modes.combo_duel.hits, combo_duel_melee_hits);
     model.stats.Duels.modes.combo_duel.arrowsShot = handleSection(model.stats.Duels.modes.combo_duel.arrowsShot, combo_duel_bow_shots);
     model.stats.Duels.modes.combo_duel.arrowsHit = handleSection(model.stats.Duels.modes.combo_duel.arrowsHit, combo_duel_bow_hits);
+
+    model.stats.Duels.bridgeModes.bridge_duel.kills = handleSection(model.stats.Duels.bridgeModes.bridge_duel.kills, (bridge_duel_kills + bridge_duel_bridge_kills));
+    model.stats.Duels.bridgeModes.bridge_duel.deaths = handleSection(model.stats.Duels.bridgeModes.bridge_duel.deaths, (bridge_duel_deaths + bridge_duel_bridge_deaths));
+    model.stats.Duels.bridgeModes.bridge_duel.wins = handleSection(model.stats.Duels.bridgeModes.bridge_duel.wins, bridge_duel_wins);
+    model.stats.Duels.bridgeModes.bridge_duel.losses = handleSection(model.stats.Duels.bridgeModes.bridge_duel.losses, bridge_duel_losses);
+    model.stats.Duels.bridgeModes.bridge_duel.goals = handleSection(model.stats.Duels.bridgeModes.bridge_duel.goals, bridge_duel_goals);
+    model.stats.Duels.bridgeModes.bridge_duel.swings = handleSection(model.stats.Duels.bridgeModes.bridge_duel.swings, bridge_duel_melee_swings);
+    model.stats.Duels.bridgeModes.bridge_duel.hits = handleSection(model.stats.Duels.bridgeModes.bridge_duel.hits, bridge_duel_melee_hits);
+    model.stats.Duels.bridgeModes.bridge_duel.arrowsShot = handleSection(model.stats.Duels.bridgeModes.bridge_duel.arrowsShot, bridge_duel_bow_shots);
+    model.stats.Duels.bridgeModes.bridge_duel.arrowsHit = handleSection(model.stats.Duels.bridgeModes.bridge_duel.arrowsHit, bridge_duel_bow_hits);
+    model.stats.Duels.bridgeModes.bridge_duel.winstreaks.best = handleSection(model.stats.Duels.bridgeModes.bridge_duel.winstreaks.best, best_winstreak_mode_bridge_duel);
+    model.stats.Duels.bridgeModes.bridge_duel.winstreaks.current = handleSection(model.stats.Duels.bridgeModes.bridge_duel.winstreaks.current, current_winstreak_mode_bridge_duel);
+
+    model.stats.Duels.bridgeModes.bridge_doubles.kills = handleSection(model.stats.Duels.bridgeModes.bridge_doubles.kills, (bridge_doubles_kills + bridge_doubles_bridge_kills));
+    model.stats.Duels.bridgeModes.bridge_doubles.deaths = handleSection(model.stats.Duels.bridgeModes.bridge_doubles.deaths, (bridge_doubles_deaths + bridge_doubles_bridge_deaths));
+    model.stats.Duels.bridgeModes.bridge_doubles.wins = handleSection(model.stats.Duels.bridgeModes.bridge_doubles.wins, bridge_doubles_wins);
+    model.stats.Duels.bridgeModes.bridge_doubles.losses = handleSection(model.stats.Duels.bridgeModes.bridge_doubles.losses, bridge_doubles_losses);
+    model.stats.Duels.bridgeModes.bridge_doubles.goals = handleSection(model.stats.Duels.bridgeModes.bridge_doubles.goals, bridge_doubles_goals);
+    model.stats.Duels.bridgeModes.bridge_doubles.swings = handleSection(model.stats.Duels.bridgeModes.bridge_doubles.swings, bridge_doubles_melee_swings);
+    model.stats.Duels.bridgeModes.bridge_doubles.hits = handleSection(model.stats.Duels.bridgeModes.bridge_doubles.hits, bridge_doubles_melee_hits);
+    model.stats.Duels.bridgeModes.bridge_doubles.arrowsShot = handleSection(model.stats.Duels.bridgeModes.bridge_doubles.arrowsShot, bridge_doubles_bow_shots);
+    model.stats.Duels.bridgeModes.bridge_doubles.arrowsHit = handleSection(model.stats.Duels.bridgeModes.bridge_doubles.arrowsHit, bridge_doubles_bow_hits);
+    model.stats.Duels.bridgeModes.bridge_doubles.winstreaks.best = handleSection(model.stats.Duels.bridgeModes.bridge_doubles.winstreaks.best, best_winstreak_mode_bridge_doubles);
+    model.stats.Duels.bridgeModes.bridge_doubles.winstreaks.current = handleSection(model.stats.Duels.bridgeModes.bridge_doubles.winstreaks.current, current_winstreak_mode_bridge_doubles);
+
+    model.stats.Duels.bridgeModes.bridge_threes.kills = handleSection(model.stats.Duels.bridgeModes.bridge_threes.kills, (bridge_threes_kills + bridge_threes_bridge_kills));
+    model.stats.Duels.bridgeModes.bridge_threes.deaths = handleSection(model.stats.Duels.bridgeModes.bridge_threes.deaths, (bridge_threes_deaths + bridge_threes_bridge_deaths));
+    model.stats.Duels.bridgeModes.bridge_threes.wins = handleSection(model.stats.Duels.bridgeModes.bridge_threes.wins, bridge_threes_wins);
+    model.stats.Duels.bridgeModes.bridge_threes.losses = handleSection(model.stats.Duels.bridgeModes.bridge_threes.losses, bridge_threes_losses);
+    model.stats.Duels.bridgeModes.bridge_threes.goals = handleSection(model.stats.Duels.bridgeModes.bridge_threes.goals, bridge_threes_goals);
+    model.stats.Duels.bridgeModes.bridge_threes.swings = handleSection(model.stats.Duels.bridgeModes.bridge_threes.swings, bridge_threes_melee_swings);
+    model.stats.Duels.bridgeModes.bridge_threes.hits = handleSection(model.stats.Duels.bridgeModes.bridge_threes.hits, bridge_threes_melee_hits);
+    model.stats.Duels.bridgeModes.bridge_threes.arrowsShot = handleSection(model.stats.Duels.bridgeModes.bridge_threes.arrowsShot, bridge_threes_bow_shots);
+    model.stats.Duels.bridgeModes.bridge_threes.arrowsHit = handleSection(model.stats.Duels.bridgeModes.bridge_threes.arrowsHit, bridge_threes_bow_hits);
+    model.stats.Duels.bridgeModes.bridge_threes.winstreaks.best = handleSection(model.stats.Duels.bridgeModes.bridge_threes.winstreaks.best, best_winstreak_mode_bridge_threes);
+    model.stats.Duels.bridgeModes.bridge_threes.winstreaks.current = handleSection(model.stats.Duels.bridgeModes.bridge_threes.winstreaks.current, current_winstreak_mode_bridge_threes);
+
+    model.stats.Duels.bridgeModes.bridge_four.kills = handleSection(model.stats.Duels.bridgeModes.bridge_four.kills, (bridge_four_kills + bridge_four_bridge_kills));
+    model.stats.Duels.bridgeModes.bridge_four.deaths = handleSection(model.stats.Duels.bridgeModes.bridge_four.deaths, (bridge_four_deaths + bridge_four_bridge_deaths));
+    model.stats.Duels.bridgeModes.bridge_four.wins = handleSection(model.stats.Duels.bridgeModes.bridge_four.wins, bridge_four_wins);
+    model.stats.Duels.bridgeModes.bridge_four.losses = handleSection(model.stats.Duels.bridgeModes.bridge_four.losses, bridge_four_losses);
+    model.stats.Duels.bridgeModes.bridge_four.goals = handleSection(model.stats.Duels.bridgeModes.bridge_four.goals, bridge_four_goals);
+    model.stats.Duels.bridgeModes.bridge_four.swings = handleSection(model.stats.Duels.bridgeModes.bridge_four.swings, bridge_four_melee_swings);
+    model.stats.Duels.bridgeModes.bridge_four.hits = handleSection(model.stats.Duels.bridgeModes.bridge_four.hits, bridge_four_melee_hits);
+    model.stats.Duels.bridgeModes.bridge_four.arrowsShot = handleSection(model.stats.Duels.bridgeModes.bridge_four.arrowsShot, bridge_four_bow_shots);
+    model.stats.Duels.bridgeModes.bridge_four.arrowsHit = handleSection(model.stats.Duels.bridgeModes.bridge_four.arrowsHit, bridge_four_bow_hits);
+    model.stats.Duels.bridgeModes.bridge_four.winstreaks.best = handleSection(model.stats.Duels.bridgeModes.bridge_four.winstreaks.best, best_winstreak_mode_bridge_four);
+    model.stats.Duels.bridgeModes.bridge_four.winstreaks.current = handleSection(model.stats.Duels.bridgeModes.bridge_four.winstreaks.current, current_winstreak_mode_bridge_four);
+
+    model.stats.Duels.bridgeModes.bridge_2v2v2v2.kills = handleSection(model.stats.Duels.bridgeModes.bridge_2v2v2v2.kills, (bridge_2v2v2v2_kills + bridge_2v2v2v2_bridge_kills));
+    model.stats.Duels.bridgeModes.bridge_2v2v2v2.deaths = handleSection(model.stats.Duels.bridgeModes.bridge_2v2v2v2.deaths, (bridge_2v2v2v2_deaths + bridge_2v2v2v2_bridge_deaths));
+    model.stats.Duels.bridgeModes.bridge_2v2v2v2.wins = handleSection(model.stats.Duels.bridgeModes.bridge_2v2v2v2.wins, bridge_2v2v2v2_wins);
+    model.stats.Duels.bridgeModes.bridge_2v2v2v2.losses = handleSection(model.stats.Duels.bridgeModes.bridge_2v2v2v2.losses, bridge_2v2v2v2_losses);
+    model.stats.Duels.bridgeModes.bridge_2v2v2v2.goals = handleSection(model.stats.Duels.bridgeModes.bridge_2v2v2v2.goals, bridge_2v2v2v2_goals);
+    model.stats.Duels.bridgeModes.bridge_2v2v2v2.swings = handleSection(model.stats.Duels.bridgeModes.bridge_2v2v2v2.swings, bridge_2v2v2v2_melee_swings);
+    model.stats.Duels.bridgeModes.bridge_2v2v2v2.hits = handleSection(model.stats.Duels.bridgeModes.bridge_2v2v2v2.hits, bridge_2v2v2v2_melee_hits);
+    model.stats.Duels.bridgeModes.bridge_2v2v2v2.arrowsShot = handleSection(model.stats.Duels.bridgeModes.bridge_2v2v2v2.arrowsShot, bridge_2v2v2v2_bow_shots);
+    model.stats.Duels.bridgeModes.bridge_2v2v2v2.arrowsHit = handleSection(model.stats.Duels.bridgeModes.bridge_2v2v2v2.arrowsHit, bridge_2v2v2v2_bow_hits);
+    model.stats.Duels.bridgeModes.bridge_2v2v2v2.winstreaks.best = handleSection(model.stats.Duels.bridgeModes.bridge_2v2v2v2.winstreaks.best, best_winstreak_mode_bridge_2v2v2v2);
+    model.stats.Duels.bridgeModes.bridge_2v2v2v2.winstreaks.current = handleSection(model.stats.Duels.bridgeModes.bridge_2v2v2v2.winstreaks.current, current_winstreak_mode_bridge_2v2v2v2);
+
+    model.stats.Duels.bridgeModes.bridge_3v3v3v3.kills = handleSection(model.stats.Duels.bridgeModes.bridge_3v3v3v3.kills, (bridge_3v3v3v3_kills + bridge_3v3v3v3_bridge_kills));
+    model.stats.Duels.bridgeModes.bridge_3v3v3v3.deaths = handleSection(model.stats.Duels.bridgeModes.bridge_3v3v3v3.deaths, (bridge_3v3v3v3_deaths + bridge_3v3v3v3_bridge_deaths));
+    model.stats.Duels.bridgeModes.bridge_3v3v3v3.wins = handleSection(model.stats.Duels.bridgeModes.bridge_3v3v3v3.wins, bridge_3v3v3v3_wins);
+    model.stats.Duels.bridgeModes.bridge_3v3v3v3.losses = handleSection(model.stats.Duels.bridgeModes.bridge_3v3v3v3.losses, bridge_3v3v3v3_losses);
+    model.stats.Duels.bridgeModes.bridge_3v3v3v3.goals = handleSection(model.stats.Duels.bridgeModes.bridge_3v3v3v3.goals, bridge_3v3v3v3_goals);
+    model.stats.Duels.bridgeModes.bridge_3v3v3v3.swings = handleSection(model.stats.Duels.bridgeModes.bridge_3v3v3v3.swings, bridge_3v3v3v3_melee_swings);
+    model.stats.Duels.bridgeModes.bridge_3v3v3v3.hits = handleSection(model.stats.Duels.bridgeModes.bridge_3v3v3v3.hits, bridge_3v3v3v3_melee_hits);
+    model.stats.Duels.bridgeModes.bridge_3v3v3v3.arrowsShot = handleSection(model.stats.Duels.bridgeModes.bridge_3v3v3v3.arrowsShot, bridge_3v3v3v3_bow_shots);
+    model.stats.Duels.bridgeModes.bridge_3v3v3v3.arrowsHit = handleSection(model.stats.Duels.bridgeModes.bridge_3v3v3v3.arrowsHit, bridge_3v3v3v3_bow_hits);
+    model.stats.Duels.bridgeModes.bridge_3v3v3v3.winstreaks.best = handleSection(model.stats.Duels.bridgeModes.bridge_3v3v3v3.winstreaks.best, best_winstreak_mode_bridge_3v3v3v3);
+    model.stats.Duels.bridgeModes.bridge_3v3v3v3.winstreaks.current = handleSection(model.stats.Duels.bridgeModes.bridge_3v3v3v3.winstreaks.current, current_winstreak_mode_bridge_3v3v3v3);
+
+    model.stats.Duels.bridgeModes.capture_threes.kills = handleSection(model.stats.Duels.bridgeModes.capture_threes.kills, (capture_threes_kills + capture_threes_bridge_kills));
+    model.stats.Duels.bridgeModes.capture_threes.deaths = handleSection(model.stats.Duels.bridgeModes.capture_threes.deaths, (capture_threes_deaths + capture_threes_bridge_deaths));
+    model.stats.Duels.bridgeModes.capture_threes.wins = handleSection(model.stats.Duels.bridgeModes.capture_threes.wins, capture_threes_wins);
+    model.stats.Duels.bridgeModes.capture_threes.losses = handleSection(model.stats.Duels.bridgeModes.capture_threes.losses, capture_threes_losses);
+    model.stats.Duels.bridgeModes.capture_threes.goals = handleSection(model.stats.Duels.bridgeModes.capture_threes.goals, capture_threes_goals);
+    model.stats.Duels.bridgeModes.capture_threes.swings = handleSection(model.stats.Duels.bridgeModes.capture_threes.swings, capture_threes_melee_swings);
+    model.stats.Duels.bridgeModes.capture_threes.hits = handleSection(model.stats.Duels.bridgeModes.capture_threes.hits, capture_threes_melee_hits);
+    model.stats.Duels.bridgeModes.capture_threes.arrowsShot = handleSection(model.stats.Duels.bridgeModes.capture_threes.arrowsShot, capture_threes_bow_shots);
+    model.stats.Duels.bridgeModes.capture_threes.arrowsHit = handleSection(model.stats.Duels.bridgeModes.capture_threes.arrowsHit, capture_threes_bow_hits);
+    model.stats.Duels.bridgeModes.capture_threes.winstreaks.best = handleSection(model.stats.Duels.bridgeModes.capture_threes.winstreaks.best, best_winstreak_mode_capture_threes);
+    model.stats.Duels.bridgeModes.capture_threes.winstreaks.current = handleSection(model.stats.Duels.bridgeModes.capture_threes.winstreaks.current, current_winstreak_mode_capture_threes);
+
+    const divisions = [
+        { name: 'Rookie', id: 'rookie', color: 'darkgray' },
+        { name: 'Iron', id: 'iron', color: 'white' },
+        { name: 'Gold', id: 'gold', color: 'gold' },
+        { name: 'Diamond', id: 'diamond', color: 'aqua' },
+        { name: 'Master', id: 'master', color: 'darkgreen' },
+        { name: 'Legend', id: 'legend', color: 'darkred' },
+        { name: 'Grandmaster', id: 'grandmaster', color: 'yellow' },
+        { name: 'Godlike', id: 'godlike', color: 'purple' },
+        { name: 'CELESTIAL', id: 'celestial', color: 'aqua' },
+        { name: 'DIVINE', id: 'divine', color: 'gold' },
+        { name: 'ASCENDED', id: 'ascended', color: 'red' },
+    ];
+
+    type Keyable = {
+        [key: string]: string | number | undefined
+    }
+
+    const divisionData: Keyable = {
+        uhc_rookie_title_prestige,
+        uhc_iron_title_prestige,
+        uhc_gold_title_prestige,
+        uhc_diamond_title_prestige,
+        uhc_master_title_prestige,
+        uhc_legend_title_prestige,
+        uhc_grandmaster_title_prestige,
+        uhc_godlike_title_prestige,
+        uhc_celestial_title_prestige,
+        uhc_divine_title_prestige,
+        uhc_ascended_title_prestige,
+    };
+
+    function getDivision(duelType: string) {
+        // stolen from 25karma.xys (thank u <3)
+
+        for (const div of divisions.slice().reverse()) {
+            const dat = divisionData[`${duelType}_${div.id}_title_prestige`];
+            if (dat !== undefined) {
+                return {
+                    name: `${div.name} ${dat}`,
+                    level: dat,
+                    color: div.color,
+                }
+            }
+        }
+        return {
+            name: `-`,
+            level: `-`,
+            color: 'gray'
+        }
+    }
 
     function handleArray(array: Array<HypixelStat>, val: number | string): Array<HypixelStat> {
         if (!array.some(e => e.value === val)) {

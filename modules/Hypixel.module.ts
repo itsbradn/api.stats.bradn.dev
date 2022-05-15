@@ -19,6 +19,8 @@ export interface HypixelResponse {
         lastLogin: Date,
         lastLogout: Date,
     },
+    networkExp: number,
+    networkLevel: number,
     karma: number,
     rank: {
         current: HYPIXEL_RANK | string,
@@ -54,6 +56,8 @@ async function GetHypixelUserByUUID(uuid: string): Promise<HypixelResponse | Err
             lastLogin: model.connections.lastLogin,
             lastLogout: model.connections.lastLogout
         },
+        networkExp: model.networkExp,
+        networkLevel: model.networkLevel,
         karma: model.karma,
         rank: {
             current: model.rank.current,
@@ -103,6 +107,9 @@ async function GetHypixelModelByUUID(uuid: string): Promise<HydratedDocument<IHy
         model.rank.current = player.player.newPackageRank;
         model.rank.plusColor = player.player.rankPlusColor;
         model.refreshAt = new Date(Date.now() + (parseInt(process.env.HYPIXEL_REFRESH_MINUTES || "5") * 60 * 1000));
+        model.networkExp = player.player.networkExp;
+        model.networkLevel = networkExpToLevel(player.player.networkExp);
+        
         model = TNTGamesGame(model, player.player.stats.TNTGames);
         model = DuelsGame(model, player.player.stats.Duels);
 
@@ -110,6 +117,10 @@ async function GetHypixelModelByUUID(uuid: string): Promise<HydratedDocument<IHy
     }
 
     return model;
+}
+
+function networkExpToLevel(exp: number = 0): number {
+	return ((Math.sqrt(exp + 15312.5) - 125/Math.sqrt(2))/(25*Math.sqrt(2)))
 }
 
 export {

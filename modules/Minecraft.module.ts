@@ -283,7 +283,7 @@ function ConvertTextureURLToId(url: string): string | undefined {
  */
 async function getTextureFromId(id: string): Promise<ErrorResponse | ArrayBuffer> {
     if (!id) return new ErrorResponse(`No Id given`, 400);
-    let skin = await skinModel.findOne({ id });
+    let skin = await skinModel.findOne({ _id: id });
     if (!skin) return new ErrorResponse(`No texture found`, 404);
     if (skin?.id !== id) return new ErrorResponse(`No texture found`, 404);
     try {

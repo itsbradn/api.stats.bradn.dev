@@ -20,6 +20,8 @@ export interface IHypixel {
         lastLogin: Date,
         lastLogout: Date,
     },
+    networkExp: number,
+    networkLevel: number,
     karma: number,
     achievements: {
         points: number
@@ -594,6 +596,8 @@ const hypixelSchema = new Schema<IHypixel>({
         lastLogin: Date,
         lastLogout: Date
     },
+    networkExp: Number,
+    networkLevel: Number,
     karma: Number,
     achievements: {
         points: Number,

@@ -457,6 +457,17 @@ export default (model: HydratedDocument<IHypixel>, {
     bridge_celestial_title_prestige = undefined,
     bridge_divine_title_prestige = undefined,
     bridge_ascended_title_prestige = undefined,
+    all_modes_rookie_title_prestige = undefined,
+    all_modes_iron_title_prestige = undefined,
+    all_modes_gold_title_prestige = undefined,
+    all_modes_diamond_title_prestige = undefined,
+    all_modes_master_title_prestige = undefined,
+    all_modes_legend_title_prestige = undefined,
+    all_modes_grandmaster_title_prestige = undefined,
+    all_modes_godlike_title_prestige = undefined,
+    all_modes_celestial_title_prestige = undefined,
+    all_modes_divine_title_prestige = undefined,
+    all_modes_ascended_title_prestige = undefined,
 }): HydratedDocument<IHypixel> => {
 
     const divisionData: Keyable = {
@@ -614,6 +625,17 @@ export default (model: HydratedDocument<IHypixel>, {
         bridge_celestial_title_prestige,
         bridge_divine_title_prestige,
         bridge_ascended_title_prestige,
+        all_modes_rookie_title_prestige,
+        all_modes_iron_title_prestige,
+        all_modes_gold_title_prestige,
+        all_modes_diamond_title_prestige,
+        all_modes_master_title_prestige,
+        all_modes_legend_title_prestige,
+        all_modes_grandmaster_title_prestige,
+        all_modes_godlike_title_prestige,
+        all_modes_celestial_title_prestige,
+        all_modes_divine_title_prestige,
+        all_modes_ascended_title_prestige,
     };
 
     const divisions = [
@@ -630,8 +652,26 @@ export default (model: HydratedDocument<IHypixel>, {
         { name: 'ASCENDED', id: 'ascended', color: 'red' },
     ];
 
+    function romanize(num: number) {
+        if (isNaN(num)) return NaN;
+    
+        var digits = String(+num).split("");
+        var key = ["","C","CC","CCC","CD","D","DC","DCC","DCCC","CM",
+            "","X","XX","XXX","XL","L","LX","LXX","LXXX","XC",
+            "","I","II","III","IV","V","VI","VII","VIII","IX"],
+        roman = "",
+        i = 3;
+        while (i--) {
+            let popped = digits.pop();
+            if (!popped) continue;
+            roman = (key[+popped + (i * 10)] || "") + roman;
+        }
+        return Array(+digits.join("") + 1).join("M") + roman;
+    }
+
     // someone please optimize this im too dumb with typescript !!!!!!!!!!!!!!!! HELPPPP !!!!!!!!!!
 
+    model.stats.Duels.division = getDivision('all_modes');
     // GAME STATS
     model.stats.Duels.coins = handleSection(model.stats.Duels.coins, coins);
     model.stats.Duels.lootChests = duels_chests;
@@ -945,11 +985,12 @@ export default (model: HydratedDocument<IHypixel>, {
         // stolen from 25karma.xys (thank u <3)
 
         for (const div of divisions.slice().reverse()) {
-            const dat = divisionData[`${duelType}_${div.id}_title_prestige`];
+            let dat = divisionData[`${duelType}_${div.id}_title_prestige`];
             if (dat !== undefined) {
+                if (typeof dat === 'string') dat = parseInt(dat);
                 return {
-                    name: `${div.name} ${dat}`,
-                    level: dat.toString(),
+                    name: `${div.name} ${romanize(dat)}`,
+                    level: romanize(dat).toString(),
                     color: div.color,
                 }
             }

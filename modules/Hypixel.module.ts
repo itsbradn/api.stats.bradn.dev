@@ -22,6 +22,9 @@ export interface HypixelResponse {
     networkExp: number,
     networkLevel: number,
     karma: number,
+    achievements: {
+        points: number,
+    },
     rank: {
         current: HYPIXEL_RANK | string,
         rankColor: HYPIXEL_RANK_COLOR | string,
@@ -59,6 +62,9 @@ async function GetHypixelUserByUUID(uuid: string): Promise<HypixelResponse | Err
         networkExp: model.networkExp,
         networkLevel: model.networkLevel,
         karma: model.karma,
+        achievements: {
+            points: model.achievements.points,
+        },
         rank: {
             current: model.rank.current,
             rankColor: model.rank.rankColor,

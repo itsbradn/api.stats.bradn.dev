@@ -139,6 +139,11 @@ export interface IHypixel {
                 best: HypixelSection,
                 current: HypixelSection,
             },
+            division: {
+                name: string,
+                level: string,
+                color: string,
+            },
             kills: HypixelSection,
             deaths: HypixelSection,
             wins: HypixelSection,
@@ -160,6 +165,7 @@ export interface IHypixel {
                     },
                     kills: HypixelSection,
                     deaths: HypixelSection,
+                    kd: HypixelSection,
                     wins: HypixelSection,
                     losses: HypixelSection,
                     swings: HypixelSection,
@@ -915,6 +921,11 @@ const hypixelSchema = new Schema<IHypixel>({
                         value: Number,
                         history: Array
                     },
+            },
+            division: {
+                name: String,
+                level: String,
+                color: String,
             },
             kills: {
                         value: Number,

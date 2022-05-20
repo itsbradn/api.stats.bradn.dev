@@ -5,6 +5,7 @@ import capeModel from '../models/cape.model';
 import ErrorResponse from '../models/errorResponse.model';
 import mojangModel, { IMojang, IMojangCapeHistory, IMojangSkinHistory, IMojangUsernameHistory } from '../models/mojang.model';
 import skinModel from '../models/skin.model';
+import userModel from '../models/user.model';
 import { GetHypixelModelByUUID } from './Hypixel.module';
 import { handleGetRequest } from './Request.module';
 
@@ -13,7 +14,14 @@ export interface MinecraftResponse {
     uuid: string,
     usernameHistory: Array<IMojangUsernameHistory>,
     skinHistory: Array<IMojangSkinHistory>,
-    capeHistory: Array<IMojangCapeHistory>
+    capeHistory: Array<IMojangCapeHistory>,
+    owner: OwnerProfile | undefined,
+}
+
+interface OwnerProfile {
+    name: string,
+    id: string,
+    emoji: string,
 }
 
 interface MojangProfile {
@@ -112,12 +120,22 @@ async function GetUserByUUID(uuid:string): Promise<MinecraftResponse | ErrorResp
     let model = await GetUserModelByUUID(uuid)
     if ((model as ErrorResponse).message) return model as ErrorResponse;
     model = model as HydratedDocument<IMojang>;
+    let owner = undefined;
+    let ownerModel = await userModel.findOne({ id: model.ownerId });
+    if (ownerModel) {
+        owner = {
+            name: ownerModel.username,
+            id: ownerModel.id,
+            emoji: ownerModel.personalization.emoji.current,
+        }
+    }
     let response: MinecraftResponse = {
         username: model.username,
         uuid: model.uuid,
         usernameHistory: model.usernameHistory,
         skinHistory: model.skinHistory,
         capeHistory: model.capeHistory,
+        owner,
     }
 
     return response;

@@ -15,6 +15,12 @@ export interface IUser {
     password: string,
     getSignedToken: Function,
     matchPassword: Function,
+    personalization: {
+        emoji: {
+            current: string,
+            owned: Array<string>,
+        }
+    }
 }
 
 const userSchema = new Schema<IUser>({
@@ -45,6 +51,12 @@ const userSchema = new Schema<IUser>({
         required: [true, "Please provide a password"],
         minlength: [7, "Your password doesn't meet the length requirement"],
         select: false
+    },
+    personalization: {
+        emoji: {
+            current: String,
+            owned: Array,
+        }
     }
 });
 

@@ -4,6 +4,8 @@ import { genSalt, hash, compare } from 'bcrypt';
 import { sign } from 'jsonwebtoken';
 import { ErrorDescription } from "mongodb";
 
+
+
 export interface IUser {
     id: Types.ObjectId,
     _id: string,
@@ -15,10 +17,21 @@ export interface IUser {
     password: string,
     getSignedToken: Function,
     matchPassword: Function,
+    rank: 'none' | 'moderator' | 'admin' | 'owner',
     personalization: {
         emoji: {
-            current: string,
-            owned: Array<string>,
+            current: Types.ObjectId,
+            owned: Array<Types.ObjectId>,
+        }
+    },
+    punishments: {
+        suspended: {
+            current: boolean,
+            history: Array<object>
+        },
+        terminated: {
+            current: boolean,
+            history: Array<object>
         }
     }
 }
@@ -52,10 +65,24 @@ const userSchema = new Schema<IUser>({
         minlength: [7, "Your password doesn't meet the length requirement"],
         select: false
     },
+    rank: {
+        type: String,
+        default: 'none',
+    },
     personalization: {
         emoji: {
-            current: String,
+            current: Types.ObjectId,
             owned: Array,
+        }
+    },
+    punishments: {
+        suspended: {
+            current: Boolean,
+            history: Array
+        },
+        terminated: {
+            current: Boolean,
+            history: Array
         }
     }
 });

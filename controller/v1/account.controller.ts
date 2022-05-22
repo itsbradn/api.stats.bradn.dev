@@ -29,6 +29,7 @@ export class AccountController extends AbstractController {
                 id: req.user.id,
                 username: req.user.username,
                 email: req.user.email,
+                rank: req.user.rank,
             }
         })
     }

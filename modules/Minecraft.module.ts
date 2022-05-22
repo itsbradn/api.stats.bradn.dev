@@ -126,7 +126,7 @@ async function GetUserByUUID(uuid:string): Promise<MinecraftResponse | ErrorResp
         owner = {
             name: ownerModel.username,
             id: ownerModel.id,
-            emoji: ownerModel.personalization.emoji.current,
+            emoji: ownerModel.personalization.emoji.current.toString(),
         }
     }
     let response: MinecraftResponse = {

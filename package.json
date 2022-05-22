@@ -33,7 +33,8 @@
     "mongoose": "^6.3.2",
     "nodemon": "^2.0.16",
     "pm2": "^5.2.0",
-    "sparkpost": "^2.1.4"
+    "sparkpost": "^2.1.4",
+    "twemoji": "^14.0.2"
   },
   "scripts": {
     "dev": "dotenv -e .env.development nodemon app.ts",

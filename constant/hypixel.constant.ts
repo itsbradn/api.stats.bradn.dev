@@ -35,6 +35,20 @@ export enum HYPIXEL_CHANNEL_TYPE {
     GUILD,
     PUBLIC,
 }
+export interface HypixelStat {
+    value: string | number,
+    date: Date,
+}
+
+export interface HypixelSection {
+    value: number | string,
+    history: Array<HypixelStat>
+}
+
+export const HYPIXEL_SECTION_DEFAULT: HypixelSection = {
+    value: 0,
+    history: []
+}
 
 interface HypixelLevelingReward {
     levelingReward_0: boolean,

@@ -1,5 +1,7 @@
-import { Schema, model, Types } from "mongoose";
+import { Schema, model, Types, Document } from "mongoose";
+import { object } from "webidl-conversions";
 import { HYPIXEL_RANK, HYPIXEL_RANK_COLOR, HYPIXEL_PLUS_COLOR } from '../constant/hypixel.constant';
+import { BedWarsMode, DefaultBedWarsMode } from "../modules/stats/games/BedWars.game";
 
 export interface HypixelStat {
     value: string | number,
@@ -11,9 +13,12 @@ export interface HypixelSection {
     history: Array<HypixelStat>
 }
 
-export interface IHypixel {
-    id: Types.ObjectId,
-    _id: string,
+export const DefaultHypixelSection: HypixelSection = {
+    value: 0,
+    history: []
+}
+
+export interface IHypixel extends Document {
     uuid: string,
     connections: {
         firstLogin: Date,
@@ -583,6 +588,58 @@ export interface IHypixel {
                     arrowsHit: HypixelSection,
                     goals: HypixelSection,
                 },
+            }
+        },
+        "BedWars": {
+            coins: HypixelSection,
+            exp: HypixelSection,
+            level: HypixelSection,
+            wins: HypixelSection,
+            losses: HypixelSection,
+            games_played: HypixelSection,
+            ingame_games_played: HypixelSection,
+            kills: HypixelSection,
+            deaths: HypixelSection,
+            beds_broken: HypixelSection,
+            beds_lost: HypixelSection,
+            final_kills: HypixelSection,
+            final_deaths: HypixelSection,
+            void_kills: HypixelSection,
+            void_deaths: HypixelSection,
+            winstreak: HypixelSection,
+            boxes: {
+                current: number,
+                opened: number,
+                commons: number,
+                rares: number,
+                epics: number,
+                legendaries: number,
+            },
+            resources_collected: {
+                iron: number,
+                gold: number,
+                diamond: number,
+                emerald: number,
+            },
+            modes: {
+                "solo": BedWarsMode,
+                "doubles": BedWarsMode,
+                "3v3v3v3": BedWarsMode,
+                "4v4v4v4": BedWarsMode,
+                "4v4": BedWarsMode,
+                "rush_solo": BedWarsMode,
+                "rush_doubles": BedWarsMode,
+                "rush_4v4v4v4": BedWarsMode,
+                "ultimate_solo": BedWarsMode,
+                "ultimate_doubles": BedWarsMode,
+                "ultimate_4v4v4v4": BedWarsMode,
+                "lucky_doubles": BedWarsMode,
+                "voidless_doubles": BedWarsMode,
+                "voidless_4v4v4v4": BedWarsMode,
+                "armed_doubles": BedWarsMode,
+                "armbed_4v4v4v4": BedWarsMode,
+                "castle": BedWarsMode,
+                [key: string]: BedWarsMode
             }
         }
     },
@@ -2159,6 +2216,156 @@ const hypixelSchema = new Schema<IHypixel>({
                         value: Number,
                         history: Array
                     },
+                },
+            }
+        },
+        "BedWars": {
+            coins: {
+                type: Object,
+                default: DefaultHypixelSection
+            },
+            exp: {
+                type: Object,
+                default: DefaultHypixelSection
+            },
+            level: {
+                type: Object,
+                default: DefaultHypixelSection
+            },
+            wins: {
+                type: Object,
+                default: DefaultHypixelSection
+            },
+            losses: {
+                type: Object,
+                default: DefaultHypixelSection
+            },
+            games_played: {
+                type: Object,
+                default: DefaultHypixelSection
+            },
+            ingame_games_played: {
+                type: Object,
+                default: DefaultHypixelSection
+            },
+            kills: {
+                type: Object,
+                default: DefaultHypixelSection
+            },
+            deaths: {
+                type: Object,
+                default: DefaultHypixelSection
+            },
+            beds_broken: {
+                type: Object,
+                default: DefaultHypixelSection
+            },
+            beds_lost: {
+                type: Object,
+                default: DefaultHypixelSection
+            },
+            final_kills: {
+                type: Object,
+                default: DefaultHypixelSection
+            },
+            final_deaths: {
+                type: Object,
+                default: DefaultHypixelSection
+            },
+            void_kills: {
+                type: Object,
+                default: DefaultHypixelSection
+            },
+            void_deaths: {
+                type: Object,
+                default: DefaultHypixelSection
+            },
+            winstreak: {
+                type: Object,
+                default: DefaultHypixelSection
+            },
+            boxes: {
+                current: Number,
+                opened: Number,
+                commons: Number,
+                rares: Number,
+                epics: Number,
+                legendaries: Number,
+            },
+            resources_collected: {
+                iron: Number,
+                gold: Number,
+                diamond: Number,
+                emerald: Number,
+            },
+            modes: {
+                "solo": {
+                    type: Object,
+                    default: DefaultBedWarsMode
+                },
+                "doubles": {
+                    type: Object,
+                    default: DefaultBedWarsMode
+                },
+                "3v3v3v3": {
+                    type: Object,
+                    default: DefaultBedWarsMode
+                },
+                "4v4v4v4": {
+                    type: Object,
+                    default: DefaultBedWarsMode
+                },
+                "4v4": {
+                    type: Object,
+                    default: DefaultBedWarsMode
+                },
+                "rush_solo": {
+                    type: Object,
+                    default: DefaultBedWarsMode
+                },
+                "rush_doubles": {
+                    type: Object,
+                    default: DefaultBedWarsMode
+                },
+                "rush_4v4v4v4": {
+                    type: Object,
+                    default: DefaultBedWarsMode
+                },
+                "ultimate_solo": {
+                    type: Object,
+                    default: DefaultBedWarsMode
+                },
+                "ultimate_doubles": {
+                    type: Object,
+                    default: DefaultBedWarsMode
+                },
+                "ultimate_4v4v4v4": {
+                    type: Object,
+                    default: DefaultBedWarsMode
+                },
+                "lucky_doubles": {
+                    type: Object,
+                    default: DefaultBedWarsMode
+                },
+                "voidless_doubles": {
+                    type: Object,
+                    default: DefaultBedWarsMode
+                },
+                "voidless_4v4v4v4": {
+                    type: Object,
+                    default: DefaultBedWarsMode
+                },
+                "armed_doubles": {
+                    type: Object,
+                    default: DefaultBedWarsMode
+                },
+                "armbed_4v4v4v4": {
+                    type: Object,
+                    default: DefaultBedWarsMode
+                },
+                "castle": {
+                    type: Object,
+                    default: DefaultBedWarsMode
                 },
             }
         }

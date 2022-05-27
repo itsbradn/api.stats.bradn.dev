@@ -7,6 +7,7 @@ import { handleGetRequest } from './Request.module';
 import { ConvertUsernameToUUID } from './Minecraft.module';
 import TNTGamesGame from './stats/games/TNTGames.game';
 import DuelsGame from './stats/games/Duels.game';
+import BedWarsGame from './stats/games/BedWars.game';
 
 const routes = {
     player: `https://api.hypixel.net/player`
@@ -34,6 +35,7 @@ export interface HypixelResponse {
     stats: {
         TNTGames: IHypixel["stats"]["TNTGames"],
         Duels: IHypixel["stats"]["Duels"],
+        BedWars: IHypixel["stats"]["BedWars"],
     },
     gifted: {
         ranks: number,
@@ -74,6 +76,7 @@ async function GetHypixelUserByUUID(uuid: string): Promise<HypixelResponse | Err
         stats: {
             TNTGames: model.stats.TNTGames,
             Duels: model.stats.Duels,
+            BedWars: model.stats.BedWars,
         },
         gifted: {
             ranks: model.gifted.ranks,
@@ -83,8 +86,8 @@ async function GetHypixelUserByUUID(uuid: string): Promise<HypixelResponse | Err
     return response;
 }
 
-async function GetHypixelModelByUUID(uuid: string): Promise<HydratedDocument<IHypixel> | ErrorResponse> {
-    let model: HydratedDocument<IHypixel> | null = await hypixelModel.findOne({ uuid });
+async function GetHypixelModelByUUID(uuid: string): Promise<IHypixel | ErrorResponse> {
+    let model: IHypixel | null = await hypixelModel.findOne({ uuid });
     if (!model) {
         model = await hypixelModel.create({
             uuid,
@@ -92,7 +95,7 @@ async function GetHypixelModelByUUID(uuid: string): Promise<HydratedDocument<IHy
         });
     }
 
-    if (model.refreshAt < new Date()) {
+    if (true) { //model.refreshAt < new Date()
         let req = (await handleGetRequest(routes.player, {
             params: {
                 uuid,
@@ -115,9 +118,15 @@ async function GetHypixelModelByUUID(uuid: string): Promise<HydratedDocument<IHy
         model.refreshAt = new Date(Date.now() + (parseInt(process.env.HYPIXEL_REFRESH_MINUTES || "5") * 60 * 1000));
         model.networkExp = player.player.networkExp;
         model.networkLevel = networkExpToLevel(player.player.networkExp);
+
+        model.markModified("stats.BedWars")
+
+        await model.save();
+
         
         model = TNTGamesGame(model, player.player.stats.TNTGames);
         model = DuelsGame(model, player.player.stats.Duels);
+        model = BedWarsGame(model, player.player.stats.Bedwars);
 
         await model.save();
     }

@@ -1,7 +1,7 @@
 import { HydratedDocument, IndexDefinition } from 'mongoose';
 import {IHypixel, HypixelStat, HypixelSection} from '../../../models/hypixel.model';
 
-export default (model: HydratedDocument<IHypixel>, {
+export default (model: IHypixel, {
     // GAME STATS
     coins = 0,
     wins = 0,
@@ -96,7 +96,7 @@ export default (model: HydratedDocument<IHypixel>, {
     new_witherwizard_assists = 0,
     new_witherwizard_explode = 0,
     new_witherwizard_regen = 0,
-}): HydratedDocument<IHypixel> => {
+}): IHypixel => {
 
     // someone please optimize this im too dumb with typescript !!!!!!!!!!!!!!!! HELPPPP !!!!!!!!!!
 

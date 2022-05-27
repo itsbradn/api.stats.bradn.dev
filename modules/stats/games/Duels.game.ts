@@ -1,7 +1,7 @@
 import { HydratedDocument, IndexDefinition } from 'mongoose';
 import { IHypixel, HypixelStat, HypixelSection } from '../../../models/hypixel.model';
 
-export default (model: HydratedDocument<IHypixel>, {
+export default (model: IHypixel, {
     // GAME STATS
     coins = 0,
     duels_chests = 0,
@@ -468,7 +468,7 @@ export default (model: HydratedDocument<IHypixel>, {
     all_modes_celestial_title_prestige = undefined,
     all_modes_divine_title_prestige = undefined,
     all_modes_ascended_title_prestige = undefined,
-}): HydratedDocument<IHypixel> => {
+}): IHypixel => {
 
     const divisionData: Keyable = {
         uhc_rookie_title_prestige,
